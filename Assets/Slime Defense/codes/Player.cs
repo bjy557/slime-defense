@@ -12,8 +12,6 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
-    private Transform transform;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,30 +22,27 @@ public class Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        transform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        inputVec.x = Input.GetAxisRaw("Horizontal");
+        inputVec.y = Input.GetAxisRaw("Vertical");
 
-        moveVector.x = moveX;
-        moveVector.y = moveY;
-
-        transform.Translate(moveVector.normalized * Time.deltaTime * 5f);
-
-        if (moveX > 0)
+        moveVector.x = inputVec.x;
+        moveVector.y = inputVec.y;
+        
+        if (inputVec.x > 0)
         {
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
-        else if (moveX < 0)
+        else if (inputVec.x < 0)
         {
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
 
-        if (moveX != 0 || moveY != 0)
+        if (inputVec.x != 0 || inputVec.y != 0)
         {
             animator.SetFloat("RunState", 0.5f);
         }
