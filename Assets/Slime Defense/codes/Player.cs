@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            animator.SetFloat("NormalState", 1);
             animator.SetTrigger("Attack");
         }
 
