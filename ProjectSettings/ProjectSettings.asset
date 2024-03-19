@@ -735,11 +735,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: a6302bfc-9122-43da-8d8c-b6cab40a71a3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Slime Defense
+  organizationId: bjy557
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
