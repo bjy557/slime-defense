@@ -9,19 +9,14 @@ public class Player : MonoBehaviour
     public float speed;
 
     Rigidbody2D rigid;
-
-    private Animator animator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    SpriteRenderer spriter;
+    Animator anim;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
+        spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,43 +24,31 @@ public class Player : MonoBehaviour
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
-
-        moveVector.x = inputVec.x;
-        moveVector.y = inputVec.y;
-        
-        if (inputVec.x > 0)
-        {
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-        }
-        else if (inputVec.x < 0)
-        {
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-        }
-
-        if (inputVec.x != 0 || inputVec.y != 0)
-        {
-            animator.SetFloat("RunState", 0.5f);
-        }
-        else
-        {
-            animator.SetFloat("RunState", 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            animator.SetFloat("NormalState", 1);
-            animator.SetTrigger("Attack");
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            animator.SetTrigger("Die");
-        }
     }
 
     private void FixedUpdate()
     {
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
+    }
+
+    private void LateUpdate()
+    {
+        anim.SetFloat("Speed", inputVec.magnitude);
+
+        if (inputVec.x != 0)
+        {
+            spriter.flipX = inputVec.x > 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            anim.SetTrigger("Attack");
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            anim.SetTrigger("Skill");
+        }
     }
 }

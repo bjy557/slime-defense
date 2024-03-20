@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
         switch (id)
         {
             case 0:
-                transform.Rotate(Vector3.forward * speed * Time.deltaTime);
+                transform.Rotate(Vector3.back * speed * Time.deltaTime);
                 break;
             default:
                 break;
