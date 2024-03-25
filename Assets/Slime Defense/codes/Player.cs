@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public FloatingJoystick joy;
+
     public Vector2 inputVec;
     private Vector3 moveVector = Vector3.zero;
     public float speed;
+    public Scanner scanner;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -17,18 +21,15 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
+        scanner = GetComponent<Scanner>();
     }
 
     private void FixedUpdate()
     {
-        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
+        inputVec.x = joy.Horizontal;
+        inputVec.y = joy.Vertical;
+
+        Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
     }
 
