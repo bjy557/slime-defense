@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         inputVec.x = joy.Horizontal;
         inputVec.y = joy.Vertical;
 
@@ -35,6 +38,9 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         anim.SetFloat("Speed", inputVec.magnitude);
 
         if (inputVec.x != 0)
@@ -50,6 +56,26 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             anim.SetTrigger("Skill");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive)
+            return;
+
+        GameManager.instance.health -= Time.deltaTime * 30;
+
+        if (GameManager.instance.health < 0)
+        {
+            for (int i=1; i<transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            anim.SetTrigger("Dead");
+
+            GameManager.instance.GameOver();
         }
     }
 }
