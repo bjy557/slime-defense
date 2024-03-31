@@ -117,7 +117,7 @@ public class Weapon : MonoBehaviour
             Quaternion additionalRotation = Quaternion.Euler(0f, 0f, -90f);
             bullet.localRotation *= additionalRotation;
 
-            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero); // -1 is Inifinity Per.
+            bullet.GetComponent<Bullet>().Init(damage, -100, Vector3.zero); // -100 is Inifinity Per.
         }
     }
 
