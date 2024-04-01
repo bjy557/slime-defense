@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("# Game Control")]
     public bool isLive;
-    public float gameTime;
-    public float maxGameTime = 2 * 10f;
 
     [Header("# Player Info")]
     public float health;
@@ -30,7 +28,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
-    public void GameStart()
+    public void Start()
     {
         maxHealth = 100;
         health = maxHealth;
@@ -63,13 +61,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isLive)
             return;
-
-        gameTime += Time.deltaTime;
-
-        if (gameTime > maxGameTime)
-        {
-            gameTime = maxGameTime;
-        }
+        
     }
 
     public void GetExp()
