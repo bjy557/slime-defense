@@ -131,12 +131,6 @@ public class Weapon : MonoBehaviour
         Vector3 dir = targetPosition - transform.position;
         dir = dir.normalized;
 
-        // 플레이어 방향을 몬스터 쪽으로 flipX로 조정
-        if (player.spriter != null)
-        {
-            player.spriter.flipX = (targetPosition.x > player.transform.position.x);
-        }
-
         Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
