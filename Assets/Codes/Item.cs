@@ -8,14 +8,10 @@ public class Item : MonoBehaviour
     public Weapon weapon;
     public Gear gear;
 
-    Image icon;
     Text textLevel;
 
     private void Awake()
     {
-        icon = GetComponentsInChildren<Image>()[1];
-        icon.sprite = data.itemIcon;
-
         Text[] texts = GetComponentsInChildren<Text>();
         textLevel = texts[0];
     }
