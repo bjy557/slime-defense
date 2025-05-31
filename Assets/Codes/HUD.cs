@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Kill, Time, Health }
+    public enum InfoType { Waves, Level, Kill, Time, Health }
     public InfoType type;
 
     Text myText;
@@ -19,7 +19,7 @@ public class HUD : MonoBehaviour
     {
         switch (type)
         {
-            case InfoType.Exp:
+            case InfoType.Waves:
                 float curExp = GameManager.instance.exp;
                 float maxExp = GameManager.instance.nextExp[GameManager.instance.level];
                 mySlider.value = curExp / maxExp;
