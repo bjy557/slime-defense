@@ -30,7 +30,7 @@ public class Item : MonoBehaviour
 
     private void LateUpdate()
     {
-        textName.text = data.itemName;
+        textName.text = data.itemName.Replace(" ", "\n");
         textValue.text = data.values[level].ToString();
         textCost.text = data.costs[level].ToString();
     }

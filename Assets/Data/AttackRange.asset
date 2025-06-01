@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemId: 5
-  itemName: Attack\nRange
+  itemName: Attack Range
   itemDesc: 
   itemIcon: {fileID: 0}
   baseDamage: 0

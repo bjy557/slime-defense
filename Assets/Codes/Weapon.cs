@@ -85,7 +85,7 @@ public class Weapon : MonoBehaviour
                 Position();
                 break;
             default:
-                speed = 0.5f;
+                speed = 1f;
                 break;
         }
 
