@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6995181784255251721}
   - component: {fileID: 1974301210242962712}
   m_Layer: 5
-  m_Name: LevelPanel
+  m_Name: ValuePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 6791874158570605090}
   - component: {fileID: 2499282808766737154}
   m_Layer: 5
-  m_Name: SkillTitle
+  m_Name: NameTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 4580800243374501168}
   - component: {fileID: 7517129260980504626}
   m_Layer: 5
-  m_Name: LevelText
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

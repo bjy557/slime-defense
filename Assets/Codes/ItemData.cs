@@ -9,13 +9,14 @@ public class ItemData : ScriptableObject
         AttackSpeed,
         CriticalChance,
         CriticalDamage,
-        Area,
-        Pierce,
-        Chain,
-        Cooldown,
-        Defense,
+        AttackRange,
         Health,
-        Regen,
+        Regeneration,
+        Defense,
+        Reflection,
+        LifeSteal,
+        GoldMultiplier,
+        GoldPerWave,
         CoinMultiplier,
         CoinPerWave
     }
@@ -30,8 +31,9 @@ public class ItemData : ScriptableObject
     [Header("# Level Data")]
     public float baseDamage;
     public int baseCount;
-    public float[] damages;
-    public int[] counts;
+    public float[] values;
+    public int[] costs;
+    public int[] permanents;
 
     [Header("# Weapon")]
     public GameObject projectile;

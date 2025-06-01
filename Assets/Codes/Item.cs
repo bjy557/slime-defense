@@ -8,7 +8,8 @@ public class Item : MonoBehaviour
     public Weapon weapon;
     public Gear gear;
 
-    Text textLevel;
+    Text textName;
+    Text textValue;
     Text textCost;
 
     private void Awake()
@@ -17,16 +18,21 @@ public class Item : MonoBehaviour
 
         foreach (Text txt in texts)
         {
-            if (txt.name == "LevelText")
-                textLevel = txt;
+            if (txt.name == "ValueText")
+                textValue = txt;
             else if (txt.name == "CostText")
                 textCost = txt;
+            else if (txt.name == "NameTitle")
+                textName = txt;
+
         }
     }
 
     private void LateUpdate()
     {
-        textLevel.text = "Lv." + (level + 1);
+        textName.text = data.itemName;
+        textValue.text = data.values[level].ToString();
+        textCost.text = data.costs[level].ToString();
     }
 
     public void OnClick()
@@ -42,13 +48,13 @@ public class Item : MonoBehaviour
                 }
                 else
                 {
-                    float nextDamage = data.baseDamage;
-                    int nextCount = 0;
+                    float nextValue = data.baseDamage;
+                    int nextCost = 0;
 
-                    nextDamage += data.baseDamage * data.damages[level];
-                    nextCount += data.counts[level];
+                    nextValue += data.baseDamage * data.values[level];
+                    nextCost += data.costs[level];
 
-                    weapon.LevelUp(nextDamage, nextCount);
+                    weapon.LevelUp(nextValue, nextCost);
                 }
                 level++;
                 break;
@@ -61,7 +67,7 @@ public class Item : MonoBehaviour
                 }
                 else
                 {
-                    float nextRate = data.damages[level];
+                    float nextRate = data.values[level];
                     gear.LevelUp(nextRate);
                 }
                 level++;
@@ -72,7 +78,7 @@ public class Item : MonoBehaviour
 
         
 
-        if (level == data.damages.Length)
+        if (level == data.values.Length)
         {
             GetComponent<Button>().interactable = false;
         }
