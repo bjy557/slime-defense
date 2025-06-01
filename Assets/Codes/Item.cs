@@ -9,11 +9,19 @@ public class Item : MonoBehaviour
     public Gear gear;
 
     Text textLevel;
+    Text textCost;
 
     private void Awake()
     {
         Text[] texts = GetComponentsInChildren<Text>();
-        textLevel = texts[0];
+
+        foreach (Text txt in texts)
+        {
+            if (txt.name == "LevelText")
+                textLevel = txt;
+            else if (txt.name == "CostText")
+                textCost = txt;
+        }
     }
 
     private void LateUpdate()
@@ -25,8 +33,7 @@ public class Item : MonoBehaviour
     {
         switch(data.itemType)
         {
-            case ItemData.ItemType.Melee:
-            case ItemData.ItemType.Range:
+            case ItemData.ItemType.Attack:
                 if (level == 0)
                 {
                     GameObject newWeapon = new GameObject();
@@ -45,8 +52,7 @@ public class Item : MonoBehaviour
                 }
                 level++;
                 break;
-            case ItemData.ItemType.Glove:
-            case ItemData.ItemType.Shoe:
+            case ItemData.ItemType.AttackSpeed:
                 if (level == 0)
                 {
                     GameObject newWeapon = new GameObject();
@@ -60,8 +66,7 @@ public class Item : MonoBehaviour
                 }
                 level++;
                 break;
-            case ItemData.ItemType.Heal:
-                GameManager.instance.health = GameManager.instance.maxHealth;
+            default:
                 break;
         }
 

@@ -28,11 +28,8 @@ public class Gear : MonoBehaviour
     {
         switch (type)
         {
-            case ItemData.ItemType.Glove:
+            case ItemData.ItemType.AttackSpeed:
                 RateUp();
-                break;
-            case ItemData.ItemType.Shoe:
-                SpeedUp();
                 break;
         }
     }
@@ -53,11 +50,5 @@ public class Gear : MonoBehaviour
                     break;
             }
         }
-    }
-
-    void SpeedUp()
-    {
-        float speed = 3;
-        GameManager.instance.player.speed = speed + speed * rate;
     }
 }
