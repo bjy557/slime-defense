@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemId: 2
-  itemName: Attack Speed
+  itemName: "\uACF5\uACA9 \uC18D\uB3C4"
   itemDesc: 
   itemIcon: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   baseDamage: 0

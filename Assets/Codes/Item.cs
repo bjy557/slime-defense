@@ -30,8 +30,34 @@ public class Item : MonoBehaviour
 
     private void LateUpdate()
     {
-        textName.text = data.itemName.Replace(" ", "\n");
-        textValue.text = data.values[level].ToString();
+        // 영어의 경우 너무 길어져서 줄바꿈 필요
+        //textName.text = data.itemName.Replace(" ", "\n");
+        textName.text = data.itemName;
+
+        switch (data.itemType)
+        {
+            case ItemData.ItemType.CriticalChance:
+            case ItemData.ItemType.Defense:
+            case ItemData.ItemType.Reflection:
+            case ItemData.ItemType.LifeSteal:
+                textValue.text = data.values[level].ToString() + "%";
+                break;
+            case ItemData.ItemType.CriticalDamage:
+            case ItemData.ItemType.GoldMultiplier:
+            case ItemData.ItemType.CoinMultiplier:
+                textValue.text = "x" + data.values[level].ToString();
+                break;
+            case ItemData.ItemType.AttackRange:
+                textValue.text = data.values[level].ToString() + "m";
+                break;
+            case ItemData.ItemType.Regeneration:
+                textValue.text = data.values[level].ToString() + "/sec";
+                break;
+            default:
+                textValue.text = data.values[level].ToString();
+                break;
+        }
+
         textCost.text = data.costs[level].ToString();
     }
 

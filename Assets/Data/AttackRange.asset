@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   itemId: 5
-  itemName: Attack Range
+  itemName: "\uACF5\uACA9 \uBC94\uC704"
   itemDesc: 
   itemIcon: {fileID: 0}
   baseDamage: 0
