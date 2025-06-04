@@ -63,46 +63,29 @@ public class Item : MonoBehaviour
 
     public void OnClick()
     {
-        switch(data.itemType)
+        switch (data.itemType)
         {
             case ItemData.ItemType.Attack:
-                if (level == 0)
-                {
-                    GameObject newWeapon = new GameObject();
-                    weapon = newWeapon.AddComponent<Weapon>();
-                    weapon.Init(data);
-                }
-                else
-                {
-                    float nextValue = data.baseDamage;
-                    int nextCost = 0;
-
-                    nextValue += data.baseDamage * data.values[level];
-                    nextCost += data.costs[level];
-
-                    weapon.LevelUp(nextValue, nextCost);
-                }
                 level++;
+
+                if (weapon == null) return;
+                float nextValue = data.baseDamage;
+
+                nextValue = data.values[level];
+
+                weapon.LevelUp(nextValue, 0);
                 break;
             case ItemData.ItemType.AttackSpeed:
-                if (level == 0)
-                {
-                    GameObject newWeapon = new GameObject();
-                    gear = newWeapon.AddComponent<Gear>();
-                    gear.Init(data);
-                }
-                else
-                {
-                    float nextRate = data.values[level];
-                    gear.LevelUp(nextRate);
-                }
                 level++;
+
+                float nextRate = data.values[level];
+                gear.LevelUp(nextRate);
                 break;
             default:
                 break;
         }
 
-        
+
 
         if (level == data.values.Length)
         {

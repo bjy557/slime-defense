@@ -33,7 +33,29 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
+        isLive = true;
         health = maxHealth;
+
+        // Attack 아이템 중 level이 0인 것을 찾아 무기 생성
+        Item[] items = FindObjectsByType<Item>(FindObjectsSortMode.None);
+        foreach (var item in items)
+        {
+            if (item.data.itemType == ItemData.ItemType.Attack && item.level == 0)
+            {
+                GameObject newWeapon = new GameObject("FireBall");
+                item.weapon = newWeapon.AddComponent<Weapon>();
+                item.weapon.Init(item.data);
+                level++;
+            }
+
+            if (item.data.itemType == ItemData.ItemType.AttackSpeed && item.level == 0)
+            {
+                GameObject newGear = new GameObject("AttackSpeed");
+                item.gear = newGear.AddComponent<Gear>();
+                item.gear.Init(item.data);
+                level++;
+            }
+        }
 
         Resume();
 
@@ -49,7 +71,7 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOverRoutine()
     {
         isLive = false;
-        enemyCleaner.SetActive(true);
+        // enemyCleaner.SetActive(true);
 
         yield return new WaitForSeconds(1f);
 
