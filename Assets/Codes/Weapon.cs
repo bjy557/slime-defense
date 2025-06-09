@@ -121,6 +121,10 @@ public class Weapon : MonoBehaviour
         if (!player.scanner.nearestTarget)
             return;
 
+        float distance = Vector3.Distance(transform.position, player.scanner.nearestTarget.position);
+        if (distance > player.scanner.scanRange)
+            return;
+
         Vector3 targetPosition = player.scanner.nearestTarget.position;
         Vector3 dir = targetPosition - transform.position;
         dir = dir.normalized;
