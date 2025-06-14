@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [Header("# Game Control")]
     public bool isLive;
     public float gameTime;
-    public float maxGameTime = 1 * 10f;
 
     [Header("# Player Info")]
     public float health;
@@ -98,11 +97,6 @@ public class GameManager : MonoBehaviour
             return;
 
         gameTime += Time.deltaTime;
-
-        if (gameTime > maxGameTime)
-        {
-            gameTime = maxGameTime;
-        }
     }
 
     public void GetExp()
