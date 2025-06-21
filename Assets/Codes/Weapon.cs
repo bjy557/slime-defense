@@ -51,6 +51,11 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public void UpgradeSpeed(float rate)
+    {
+        this.speed = 1f / rate;
+    }
+
     public void UpgradeCriticalChance(float criticalChance)
     {
         this.criticalChance = criticalChance;
@@ -61,28 +66,26 @@ public class Weapon : MonoBehaviour
         this.criticalDamage = criticalDamage;
     }
 
-    public void Init(ItemData data)
+    public void UpgradeScanRange(float scanRange)
+    {
+        player.scanner.scanRange = scanRange;
+    }
+
+    public void Init()
     {
         // Basic Set
-        name = "Weapon " + data.itemId;
+        name = "Fire Ball";
         transform.parent = player.transform;
         transform.localPosition = Vector3.zero;
 
         // Property Set
-        id = data.itemId;
-        damage = data.baseDamage;
-        count = data.baseCount;
+        id = 1;
+        damage = 3;
+        count = 0;
         criticalChance = 1f;
         criticalDamage = 1.2f;
 
-        for (int i = 0; i < GameManager.instance.pool.prefaps.Length; i++)
-        {
-            if (data.projectile == GameManager.instance.pool.prefaps[i])
-            {
-                prefabId = i;
-                break;
-            }
-        }
+        prefabId = 2;
 
         switch (id)
         {

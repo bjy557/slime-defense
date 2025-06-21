@@ -37,22 +37,37 @@ public class GameManager : MonoBehaviour
 
         // Attack 아이템 중 level이 0인 것을 찾아 무기 생성
         Item[] items = FindObjectsByType<Item>(FindObjectsSortMode.None);
+
+        Weapon weapon = new Weapon();
+
+        GameObject sharedWeapon = new GameObject("FireBall");
+        sharedWeapon.AddComponent<Weapon>();
+        sharedWeapon.GetComponent<Weapon>().Init();
+
+        GameObject sharedGear = new GameObject("Gear");
+        sharedGear.AddComponent<Gear>();
+        sharedGear.GetComponent<Gear>().Init();
+
         foreach (var item in items)
         {
-            if (item.data.itemType == ItemData.ItemType.Attack && item.level == 0)
+            switch (item.data.itemType)
             {
-                GameObject newWeapon = new GameObject("FireBall");
-                item.weapon = newWeapon.AddComponent<Weapon>();
-                item.weapon.Init(item.data);
-                level++;
-            }
-
-            if (item.data.itemType == ItemData.ItemType.AttackSpeed && item.level == 0)
-            {
-                GameObject newGear = new GameObject("AttackSpeed");
-                item.gear = newGear.AddComponent<Gear>();
-                item.gear.Init(item.data);
-                level++;
+                case ItemData.ItemType.Attack:
+                case ItemData.ItemType.AttackSpeed:
+                case ItemData.ItemType.CriticalChance:
+                case ItemData.ItemType.CriticalDamage:
+                case ItemData.ItemType.AttackRange:
+                    item.weapon = sharedWeapon.GetComponent<Weapon>();
+                    break;
+                case ItemData.ItemType.Health:
+                case ItemData.ItemType.Regeneration:
+                case ItemData.ItemType.Defense:
+                case ItemData.ItemType.Reflection:
+                case ItemData.ItemType.LifeSteal:
+                    item.gear = sharedGear.GetComponent<Gear>();
+                    break;
+                default:
+                    break;
             }
         }
 
