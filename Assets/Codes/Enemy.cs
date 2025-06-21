@@ -67,6 +67,8 @@ public class Enemy : MonoBehaviour
         anim.SetBool("Dead", false);
 
         health = maxHealth;
+
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
     }
 
     public void Init(SpawnData data)

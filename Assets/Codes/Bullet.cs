@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
 
         if (per >= 0)
         {
-            rigid.linearVelocity = dir * 15f;
+            rigid.linearVelocity = dir * 7f;
         }
     }
 

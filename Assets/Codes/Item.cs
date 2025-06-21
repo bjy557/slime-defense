@@ -73,7 +73,7 @@ public class Item : MonoBehaviour
 
                 nextValue = data.values[level];
 
-                weapon.UpgradeDamage(nextValue, 0);
+                weapon.UpgradeDamage(nextValue);
                 break;
             case ItemData.ItemType.AttackSpeed:
                 level++;

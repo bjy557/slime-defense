@@ -40,10 +40,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void UpgradeDamage(float damage, int count)
+    public void UpgradeDamage(float damage)
     {
         this.damage = damage;
-        this.count += count;
 
         if (id == 0)
         {
