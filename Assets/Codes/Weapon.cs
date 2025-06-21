@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void LevelUp(float damage, int count)
+    public void DamageUp(float damage, int count)
     {
         this.damage = damage;
         this.count += count;
@@ -47,8 +47,6 @@ public class Weapon : MonoBehaviour
         {
             Position();
         }
-
-        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     public void Init(ItemData data)
@@ -82,8 +80,6 @@ public class Weapon : MonoBehaviour
                 speed = 1f;
                 break;
         }
-
-        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     void Position()

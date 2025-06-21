@@ -51,7 +51,7 @@ public class Item : MonoBehaviour
                 textValue.text = data.values[level].ToString() + "m";
                 break;
             case ItemData.ItemType.Regeneration:
-                textValue.text = data.values[level].ToString() + "/sec";
+                textValue.text = data.values[level].ToString() + "/s";
                 break;
             default:
                 textValue.text = data.values[level].ToString();
@@ -73,7 +73,7 @@ public class Item : MonoBehaviour
 
                 nextValue = data.values[level];
 
-                weapon.LevelUp(nextValue, 0);
+                weapon.DamageUp(nextValue, 0);
                 break;
             case ItemData.ItemType.AttackSpeed:
                 level++;

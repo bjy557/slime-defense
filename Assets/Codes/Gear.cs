@@ -15,17 +15,12 @@ public class Gear : MonoBehaviour
         // Property Set
         type = data.itemType;
         rate = data.values[0];
-        ApplyGear();
     }
 
     public void LevelUp(float rate)
     {
         this.rate = rate;
-        ApplyGear();
-    }
 
-    void ApplyGear()
-    {
         switch (type)
         {
             case ItemData.ItemType.AttackSpeed:

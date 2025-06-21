@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 8
   itemId: 9
-  itemName: "\uAC00\uC2DC \uB300\uBBF8\uC9C0"
+  itemName: "\uBC18\uC0AC \uB300\uBBF8\uC9C0"
   itemDesc: 
   itemIcon: {fileID: 0}
   baseDamage: 0
