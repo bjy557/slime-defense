@@ -1,0 +1,4 @@
+repository "Slime Defense 2025-05-14_23-41-16/Slime Defense@14569106886917@cloud"
+  path "/"
+    br "/main"
+    co "/main"
