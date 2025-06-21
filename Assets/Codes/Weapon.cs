@@ -7,6 +7,8 @@ public class Weapon : MonoBehaviour
     public float damage;
     public int count;
     public float speed;
+    public float criticalChance;
+    public float criticalDamage;
 
     float timer;
     Player player;
@@ -38,7 +40,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void DamageUp(float damage, int count)
+    public void UpgradeDamage(float damage, int count)
     {
         this.damage = damage;
         this.count += count;
@@ -47,6 +49,16 @@ public class Weapon : MonoBehaviour
         {
             Position();
         }
+    }
+
+    public void UpgradeCriticalChance(float criticalChance)
+    {
+        this.criticalChance = criticalChance;
+    }
+
+    public void UpgradeCriticalDamage(float criticalDamage)
+    {
+        this.criticalDamage = criticalDamage;
     }
 
     public void Init(ItemData data)
@@ -60,6 +72,8 @@ public class Weapon : MonoBehaviour
         id = data.itemId;
         damage = data.baseDamage;
         count = data.baseCount;
+        criticalChance = 1f;
+        criticalDamage = 1.2f;
 
         for (int i = 0; i < GameManager.instance.pool.prefaps.Length; i++)
         {
@@ -128,7 +142,19 @@ public class Weapon : MonoBehaviour
         Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
-        bullet.GetComponent<Bullet>().Init(damage, count, dir);
+
+        float newDamage = damage;
+
+        // set critical damage with critical chance
+        if (Random.value < criticalChance / 100f)
+        {
+            newDamage = damage * criticalDamage;
+        } else
+        {
+            newDamage = damage;
+        }
+
+        bullet.GetComponent<Bullet>().Init(newDamage, count, dir);
 
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Range);
     }

@@ -73,13 +73,25 @@ public class Item : MonoBehaviour
 
                 nextValue = data.values[level];
 
-                weapon.DamageUp(nextValue, 0);
+                weapon.UpgradeDamage(nextValue, 0);
                 break;
             case ItemData.ItemType.AttackSpeed:
                 level++;
 
                 float nextRate = data.values[level];
                 gear.LevelUp(nextRate);
+                break;
+            case ItemData.ItemType.CriticalChance:
+                level++;
+
+                float nextCriticalChance = data.values[level];
+                weapon.UpgradeCriticalChance(nextCriticalChance);
+                break;
+            case ItemData.ItemType.CriticalDamage:
+                level++;
+
+                float nextCriticalDamage = data.values[level];
+                weapon.UpgradeCriticalDamage(nextCriticalDamage);
                 break;
             default:
                 break;
