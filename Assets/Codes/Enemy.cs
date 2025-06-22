@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
+    public float damage;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
 
@@ -18,6 +19,9 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriter;
     WaitForFixedUpdate wait;
     WaitForSeconds knockbackTime;
+
+    float damageCooldown = 1f;
+    float lastAttackTime = -999f;
 
     void Awake()
     {
@@ -77,6 +81,7 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+        damage = data.damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -107,6 +112,31 @@ public class Enemy : MonoBehaviour
             if (GameManager.instance.isLive)
             {
                 AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive || !isLive)
+            return;
+
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
+
+        if (Time.time - lastAttackTime > damageCooldown)
+        {
+            GameManager.instance.health -= damage;
+            lastAttackTime = Time.time;
+
+            if (GameManager.instance.health <= 0)
+            {
+                for (int i = 2; i < GameManager.instance.player.transform.childCount; i++)
+                {
+                    GameManager.instance.player.transform.GetChild(i).gameObject.SetActive(false);
+                }
+                GameManager.instance.player.GetComponent<Animator>().SetTrigger("Dead");
+                GameManager.instance.GameOver();
             }
         }
     }
