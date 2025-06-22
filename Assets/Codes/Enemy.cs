@@ -4,9 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public float health;
-    public float maxHealth;
-    public float damage;
+    public double health;
+    public double maxHealth;
+    public double damage;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
 
@@ -77,11 +77,24 @@ public class Enemy : MonoBehaviour
 
     public void Init(SpawnData data)
     {
-        anim.runtimeAnimatorController = animCon[data.spriteType];
-        speed = data.speed;
-        maxHealth = data.health;
-        health = data.health;
-        damage = data.damage;
+        // 8 : 2 확률로 0번 혹은 1번 애니메이션 컨트롤러 및 능력치 수정 해야함
+        int randomIndex = Random.Range(0, 10);
+        if (randomIndex < 8)
+        {
+            anim.runtimeAnimatorController = animCon[0]; // 80% 확률로 첫 번째 컨트롤러
+            speed = 0.2f;
+            maxHealth = data.health;
+            health = data.health;
+            damage = data.damage;
+        }
+        else
+        {
+            anim.runtimeAnimatorController = animCon[1]; // 20% 확률로 두 번째 컨트롤러
+            speed = 0.7f; // 속도가 더 빠른 적
+            maxHealth = data.health * 0.7f;
+            health = data.health * 0.7f;
+            damage = data.damage * 0.7f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

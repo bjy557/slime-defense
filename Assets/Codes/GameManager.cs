@@ -9,10 +9,11 @@ public class GameManager : MonoBehaviour
     [Header("# Game Control")]
     public bool isLive;
     public float gameTime;
+    public int wave;
 
     [Header("# Player Info")]
-    public float health;
-    public float maxHealth;
+    public double health;
+    public double maxHealth;
     public int level;
     public int kill;
     public int exp;
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         isLive = true;
         health = maxHealth;
+
+        wave = 1;
 
         // Attack 아이템 중 level이 0인 것을 찾아 무기 생성
         Item[] items = FindObjectsByType<Item>(FindObjectsSortMode.None);

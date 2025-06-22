@@ -18706,6 +18706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLive: 0
   gameTime: 0
+  wave: 0
   health: 0
   maxHealth: 100
   level: 0
@@ -74720,16 +74721,2006 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: []
   spawnData:
-  - spawnTime: 1
-    spriteType: 0
-    health: 5
-    speed: 0.3
+  - health: 2
+    damage: 1
+  - health: 3
+    damage: 1
+  - health: 4
+    damage: 2
+  - health: 6
+    damage: 2
+  - health: 7
+    damage: 2
+  - health: 9
+    damage: 3
+  - health: 11
+    damage: 3
+  - health: 13
+    damage: 4
+  - health: 15
+    damage: 4
+  - health: 18
+    damage: 5
+  - health: 21
+    damage: 5
+  - health: 24
+    damage: 6
+  - health: 27
+    damage: 7
+  - health: 30
+    damage: 8
+  - health: 35
+    damage: 8
+  - health: 38
+    damage: 9
+  - health: 42
     damage: 10
-  - spawnTime: 0.2
-    spriteType: 1
-    health: 10
-    speed: 0.8
+  - health: 46
+    damage: 11
+  - health: 51
+    damage: 12
+  - health: 59
+    damage: 14
+  - health: 64
+    damage: 15
+  - health: 70
+    damage: 16
+  - health: 75
+    damage: 17
+  - health: 81
+    damage: 18
+  - health: 94
     damage: 20
+  - health: 101
+    damage: 22
+  - health: 108
+    damage: 23
+  - health: 115
+    damage: 24
+  - health: 122
+    damage: 26
+  - health: 143
+    damage: 29
+  - health: 152
+    damage: 30
+  - health: 161
+    damage: 32
+  - health: 171
+    damage: 34
+  - health: 180
+    damage: 36
+  - health: 195
+    damage: 38
+  - health: 206
+    damage: 40
+  - health: 217
+    damage: 42
+  - health: 228
+    damage: 44
+  - health: 239
+    damage: 46
+  - health: 266
+    damage: 50
+  - health: 279
+    damage: 53
+  - health: 292
+    damage: 55
+  - health: 305
+    damage: 57
+  - health: 319
+    damage: 60
+  - health: 341
+    damage: 63
+  - health: 356
+    damage: 66
+  - health: 371
+    damage: 69
+  - health: 386
+    damage: 71
+  - health: 402
+    damage: 74
+  - health: 477
+    damage: 81
+  - health: 496
+    damage: 84
+  - health: 515
+    damage: 87
+  - health: 535
+    damage: 91
+  - health: 554
+    damage: 94
+  - health: 587
+    damage: 98
+  - health: 608
+    damage: 102
+  - health: 630
+    damage: 105
+  - health: 651
+    damage: 109
+  - health: 674
+    damage: 112
+  - health: 809
+    damage: 120
+  - health: 836
+    damage: 124
+  - health: 863
+    damage: 128
+  - health: 891
+    damage: 132
+  - health: 919
+    damage: 136
+  - health: 966
+    damage: 142
+  - health: 996
+    damage: 146
+  - health: 1030
+    damage: 150
+  - health: 1060
+    damage: 154
+  - health: 1090
+    damage: 159
+  - health: 1170
+    damage: 168
+  - health: 1200
+    damage: 173
+  - health: 1370
+    damage: 179
+  - health: 1410
+    damage: 184
+  - health: 1440
+    damage: 189
+  - health: 1550
+    damage: 198
+  - health: 1590
+    damage: 203
+  - health: 1630
+    damage: 208
+  - health: 1670
+    damage: 213
+  - health: 1720
+    damage: 218
+  - health: 1820
+    damage: 230
+  - health: 1870
+    damage: 235
+  - health: 1920
+    damage: 241
+  - health: 2180
+    damage: 249
+  - health: 2230
+    damage: 255
+  - health: 2320
+    damage: 264
+  - health: 2380
+    damage: 270
+  - health: 2430
+    damage: 276
+  - health: 2490
+    damage: 282
+  - health: 2550
+    damage: 288
+  - health: 2780
+    damage: 305
+  - health: 2840
+    damage: 311
+  - health: 2910
+    damage: 318
+  - health: 2970
+    damage: 324
+  - health: 3350
+    damage: 334
+  - health: 3470
+    damage: 345
+  - health: 3550
+    damage: 352
+  - health: 3620
+    damage: 360
+  - health: 3700
+    damage: 367
+  - health: 3770
+    damage: 374
+  - health: 4360
+    damage: 403
+  - health: 4450
+    damage: 411
+  - health: 4540
+    damage: 419
+  - health: 4640
+    damage: 427
+  - health: 4730
+    damage: 435
+  - health: 4880
+    damage: 448
+  - health: 4970
+    damage: 456
+  - health: 5310
+    damage: 469
+  - health: 5420
+    damage: 478
+  - health: 5520
+    damage: 486
+  - health: 5760
+    damage: 507
+  - health: 5870
+    damage: 516
+  - health: 5980
+    damage: 525
+  - health: 6090
+    damage: 535
+  - health: 6200
+    damage: 544
+  - health: 6380
+    damage: 559
+  - health: 6490
+    damage: 569
+  - health: 6610
+    damage: 578
+  - health: 6720
+    damage: 588
+  - health: 6840
+    damage: 598
+  - health: 7720
+    damage: 625
+  - health: 7850
+    damage: 635
+  - health: 7980
+    damage: 646
+  - health: 8120
+    damage: 656
+  - health: 8250
+    damage: 666
+  - health: 8600
+    damage: 688
+  - health: 8750
+    damage: 699
+  - health: 8890
+    damage: 710
+  - health: 9030
+    damage: 721
+  - health: 9180
+    damage: 732
+  - health: 9530
+    damage: 761
+  - health: 9680
+    damage: 772
+  - health: 9840
+    damage: 784
+  - health: 9990
+    damage: 795
+  - health: 10150
+    damage: 807
+  - health: 10400
+    damage: 827
+  - health: 10560
+    damage: 839
+  - health: 10720
+    damage: 851
+  - health: 10880
+    damage: 863
+  - health: 12260
+    damage: 875
+  - health: 12710
+    damage: 908
+  - health: 12900
+    damage: 921
+  - health: 13090
+    damage: 933
+  - health: 13280
+    damage: 946
+  - health: 14390
+    damage: 969
+  - health: 14730
+    damage: 992
+  - health: 14940
+    damage: 1010
+  - health: 15150
+    damage: 1020
+  - health: 15370
+    damage: 1030
+  - health: 15580
+    damage: 1050
+  - health: 17190
+    damage: 1100
+  - health: 17420
+    damage: 1120
+  - health: 17660
+    damage: 1130
+  - health: 17900
+    damage: 1150
+  - health: 18150
+    damage: 1160
+  - health: 18550
+    damage: 1190
+  - health: 18800
+    damage: 1200
+  - health: 19050
+    damage: 1220
+  - health: 19300
+    damage: 1230
+  - health: 19550
+    damage: 1250
+  - health: 20180
+    damage: 1290
+  - health: 20440
+    damage: 1310
+  - health: 20710
+    damage: 1320
+  - health: 20970
+    damage: 1340
+  - health: 21240
+    damage: 1350
+  - health: 21690
+    damage: 1380
+  - health: 23540
+    damage: 1410
+  - health: 23840
+    damage: 1430
+  - health: 24140
+    damage: 1450
+  - health: 24430
+    damage: 1460
+  - health: 25170
+    damage: 1510
+  - health: 25480
+    damage: 1530
+  - health: 25790
+    damage: 1550
+  - health: 26100
+    damage: 1560
+  - health: 26420
+    damage: 1580
+  - health: 27250
+    damage: 1620
+  - health: 27570
+    damage: 1640
+  - health: 27900
+    damage: 1660
+  - health: 28230
+    damage: 1680
+  - health: 28560
+    damage: 1700
+  - health: 31590
+    damage: 1760
+  - health: 31960
+    damage: 1780
+  - health: 35890
+    damage: 1800
+  - health: 36300
+    damage: 1820
+  - health: 36710
+    damage: 1840
+  - health: 37400
+    damage: 1870
+  - health: 37820
+    damage: 1890
+  - health: 38250
+    damage: 1910
+  - health: 41340
+    damage: 1950
+  - health: 41800
+    damage: 1970
+  - health: 42930
+    damage: 2030
+  - health: 43400
+    damage: 2050
+  - health: 43880
+    damage: 2070
+  - health: 44350
+    damage: 2090
+  - health: 44830
+    damage: 2110
+  - health: 45630
+    damage: 2150
+  - health: 46120
+    damage: 2180
+  - health: 46610
+    damage: 2200
+  - health: 47100
+    damage: 2220
+  - health: 47600
+    damage: 2240
+  - health: 54840
+    damage: 2420
+  - health: 55410
+    damage: 2450
+  - health: 55990
+    damage: 2470
+  - health: 56570
+    damage: 2500
+  - health: 57150
+    damage: 2520
+  - health: 58100
+    damage: 2560
+  - health: 58690
+    damage: 2590
+  - health: 59290
+    damage: 2610
+  - health: 59890
+    damage: 2640
+  - health: 60490
+    damage: 2660
+  - health: 64120
+    damage: 2750
+  - health: 64760
+    damage: 2780
+  - health: 65410
+    damage: 2800
+  - health: 66050
+    damage: 2830
+  - health: 69080
+    damage: 2880
+  - health: 70180
+    damage: 2930
+  - health: 74610
+    damage: 2990
+  - health: 75330
+    damage: 3020
+  - health: 76060
+    damage: 3040
+  - health: 76790
+    damage: 3070
+  - health: 78540
+    damage: 3150
+  - health: 79290
+    damage: 3180
+  - health: 80040
+    damage: 3210
+  - health: 80800
+    damage: 3240
+  - health: 81560
+    damage: 3270
+  - health: 83510
+    damage: 3330
+  - health: 84290
+    damage: 3360
+  - health: 85070
+    damage: 3390
+  - health: 85860
+    damage: 3420
+  - health: 86650
+    damage: 3450
+  - health: 88570
+    damage: 3540
+  - health: 89370
+    damage: 3570
+  - health: 90180
+    damage: 3600
+  - health: 91000
+    damage: 3630
+  - health: 91820
+    damage: 3660
+  - health: 93160
+    damage: 3720
+  - health: 94000
+    damage: 3750
+  - health: 94830
+    damage: 3780
+  - health: 95670
+    damage: 3820
+  - health: 96510
+    damage: 3850
+  - health: 105520
+    damage: 3960
+  - health: 120280
+    damage: 4120
+  - health: 121330
+    damage: 4150
+  - health: 122380
+    damage: 4180
+  - health: 123440
+    damage: 4220
+  - health: 125180
+    damage: 4280
+  - health: 126250
+    damage: 4320
+  - health: 127330
+    damage: 4350
+  - health: 128410
+    damage: 4390
+  - health: 137000
+    damage: 4470
+  - health: 142350
+    damage: 4620
+  - health: 143550
+    damage: 4660
+  - health: 144750
+    damage: 4690
+  - health: 145960
+    damage: 4730
+  - health: 147170
+    damage: 4770
+  - health: 149150
+    damage: 4840
+  - health: 150380
+    damage: 4870
+  - health: 151610
+    damage: 4910
+  - health: 152850
+    damage: 4950
+  - health: 154090
+    damage: 4990
+  - health: 157130
+    damage: 5100
+  - health: 158400
+    damage: 5140
+  - health: 159670
+    damage: 5180
+  - health: 160950
+    damage: 5220
+  - health: 162240
+    damage: 5260
+  - health: 164360
+    damage: 5340
+  - health: 165660
+    damage: 5370
+  - health: 166970
+    damage: 5420
+  - health: 168280
+    damage: 5460
+  - health: 169600
+    damage: 5500
+  - health: 178910
+    damage: 5650
+  - health: 180300
+    damage: 5690
+  - health: 181700
+    damage: 5730
+  - health: 183110
+    damage: 5770
+  - health: 184520
+    damage: 5810
+  - health: 188240
+    damage: 5920
+  - health: 189680
+    damage: 5960
+  - health: 191120
+    damage: 6000
+  - health: 213760
+    damage: 6050
+  - health: 215380
+    damage: 6090
+  - health: 219390
+    damage: 6220
+  - health: 221040
+    damage: 6270
+  - health: 235220
+    damage: 6380
+  - health: 236970
+    damage: 6420
+  - health: 238730
+    damage: 6470
+  - health: 241640
+    damage: 6550
+  - health: 243420
+    damage: 6600
+  - health: 245210
+    damage: 6640
+  - health: 258550
+    damage: 6760
+  - health: 260440
+    damage: 6800
+  - health: 265050
+    damage: 6950
+  - health: 266980
+    damage: 7000
+  - health: 268910
+    damage: 7040
+  - health: 270850
+    damage: 7090
+  - health: 272790
+    damage: 7140
+  - health: 276000
+    damage: 7230
+  - health: 277970
+    damage: 7280
+  - health: 279950
+    damage: 7330
+  - health: 281930
+    damage: 7380
+  - health: 283920
+    damage: 7430
+  - health: 323610
+    damage: 7740
+  - health: 325880
+    damage: 7790
+  - health: 328160
+    damage: 7840
+  - health: 330450
+    damage: 7890
+  - health: 332750
+    damage: 7940
+  - health: 336500
+    damage: 8040
+  - health: 338820
+    damage: 8100
+  - health: 341150
+    damage: 8150
+  - health: 343490
+    damage: 8200
+  - health: 345840
+    damage: 8250
+  - health: 351570
+    damage: 8420
+  - health: 353960
+    damage: 8470
+  - health: 356360
+    damage: 8530
+  - health: 358760
+    damage: 8580
+  - health: 361180
+    damage: 8640
+  - health: 365150
+    damage: 8740
+  - health: 367590
+    damage: 8800
+  - health: 370040
+    damage: 8850
+  - health: 372500
+    damage: 8910
+  - health: 374970
+    damage: 8970
+  - health: 381050
+    damage: 9140
+  - health: 395340
+    damage: 9290
+  - health: 397940
+    damage: 9350
+  - health: 400540
+    damage: 9410
+  - health: 403150
+    damage: 9460
+  - health: 410000
+    damage: 9610
+  - health: 412650
+    damage: 9670
+  - health: 415320
+    damage: 9730
+  - health: 418000
+    damage: 9790
+  - health: 420690
+    damage: 9850
+  - health: 442260
+    damage: 10090
+  - health: 445080
+    damage: 10150
+  - health: 531960
+    damage: 10620
+  - health: 535340
+    damage: 10680
+  - health: 538730
+    damage: 10750
+  - health: 544290
+    damage: 10870
+  - health: 547720
+    damage: 10940
+  - health: 551160
+    damage: 11000
+  - health: 554600
+    damage: 11070
+  - health: 558060
+    damage: 11130
+  - health: 566560
+    damage: 11340
+  - health: 570080
+    damage: 11410
+  - health: 573600
+    damage: 11470
+  - health: 577140
+    damage: 11540
+  - health: 580690
+    damage: 11610
+  - health: 586560
+    damage: 11740
+  - health: 590140
+    damage: 11810
+  - health: 593740
+    damage: 11880
+  - health: 597350
+    damage: 11940
+  - health: 600970
+    damage: 12010
+  - health: 618260
+    damage: 12330
+  - health: 621990
+    damage: 12400
+  - health: 625730
+    damage: 12470
+  - health: 629480
+    damage: 12540
+  - health: 633240
+    damage: 12610
+  - health: 639460
+    damage: 12750
+  - health: 643260
+    damage: 12820
+  - health: 647070
+    damage: 12900
+  - health: 650900
+    damage: 12970
+  - health: 654730
+    damage: 13040
+  - health: 737880
+    damage: 13470
+  - health: 742200
+    damage: 13550
+  - health: 746540
+    damage: 13620
+  - health: 750890
+    damage: 13700
+  - health: 838340
+    damage: 13770
+  - health: 846320
+    damage: 13920
+  - health: 851210
+    damage: 14000
+  - health: 856120
+    damage: 14070
+  - health: 861040
+    damage: 14150
+  - health: 865980
+    damage: 14230
+  - health: 878150
+    damage: 14470
+  - health: 883160
+    damage: 14550
+  - health: 888190
+    damage: 14630
+  - health: 893230
+    damage: 14710
+  - health: 898280
+    damage: 14790
+  - health: 911600
+    damage: 14990
+  - health: 962180
+    damage: 15220
+  - health: 967580
+    damage: 15300
+  - health: 973000
+    damage: 15380
+  - health: 978430
+    damage: 15460
+  - health: 991750
+    damage: 15730
+  - health: 997260
+    damage: 15810
+  - health: 1000000
+    damage: 15890
+  - health: 1010000
+    damage: 15980
+  - health: 1010000
+    damage: 16060
+  - health: 1020000
+    damage: 16230
+  - health: 1030000
+    damage: 16310
+  - health: 1030000
+    damage: 16400
+  - health: 1040000
+    damage: 16480
+  - health: 1050000
+    damage: 16560
+  - health: 1100000
+    damage: 16930
+  - health: 1100000
+    damage: 17010
+  - health: 1110000
+    damage: 17100
+  - health: 1110000
+    damage: 17190
+  - health: 1120000
+    damage: 17270
+  - health: 1130000
+    damage: 17450
+  - health: 1140000
+    damage: 17540
+  - health: 1140000
+    damage: 17630
+  - health: 1150000
+    damage: 17710
+  - health: 1150000
+    damage: 17800
+  - health: 1350000
+    damage: 19180
+  - health: 1360000
+    damage: 19270
+  - health: 1360000
+    damage: 19370
+  - health: 1370000
+    damage: 19460
+  - health: 1380000
+    damage: 19560
+  - health: 1390000
+    damage: 19750
+  - health: 1400000
+    damage: 19850
+  - health: 1400000
+    damage: 19950
+  - health: 1410000
+    damage: 20040
+  - health: 1420000
+    damage: 20140
+  - health: 1440000
+    damage: 20460
+  - health: 1440000
+    damage: 20560
+  - health: 1450000
+    damage: 20660
+  - health: 1460000
+    damage: 20760
+  - health: 1470000
+    damage: 20860
+  - health: 1550000
+    damage: 21280
+  - health: 1560000
+    damage: 21380
+  - health: 1740000
+    damage: 21480
+  - health: 1740000
+    damage: 21580
+  - health: 1750000
+    damage: 21690
+  - health: 1890000
+    damage: 22140
+  - health: 1900000
+    damage: 22240
+  - health: 1910000
+    damage: 22350
+  - health: 1920000
+    damage: 22450
+  - health: 1930000
+    damage: 22560
+  - health: 1950000
+    damage: 22840
+  - health: 1960000
+    damage: 22940
+  - health: 1970000
+    damage: 23050
+  - health: 2040000
+    damage: 23390
+  - health: 2050000
+    damage: 23500
+  - health: 2070000
+    damage: 23860
+  - health: 2080000
+    damage: 23970
+  - health: 2170000
+    damage: 24320
+  - health: 2180000
+    damage: 24430
+  - health: 2200000
+    damage: 24550
+  - health: 2210000
+    damage: 24770
+  - health: 2220000
+    damage: 24890
+  - health: 2230000
+    damage: 25000
+  - health: 2240000
+    damage: 25110
+  - health: 2260000
+    damage: 25230
+  - health: 2280000
+    damage: 25610
+  - health: 2290000
+    damage: 25730
+  - health: 2300000
+    damage: 25840
+  - health: 2320000
+    damage: 25960
+  - health: 2330000
+    damage: 26080
+  - health: 2340000
+    damage: 26310
+  - health: 2360000
+    damage: 26430
+  - health: 2370000
+    damage: 26550
+  - health: 2380000
+    damage: 26670
+  - health: 2390000
+    damage: 26790
+  - health: 2530000
+    damage: 27500
+  - health: 2540000
+    damage: 27620
+  - health: 2550000
+    damage: 27740
+  - health: 2560000
+    damage: 27870
+  - health: 2580000
+    damage: 27990
+  - health: 2600000
+    damage: 28240
+  - health: 2610000
+    damage: 28360
+  - health: 2620000
+    damage: 28490
+  - health: 2630000
+    damage: 28610
+  - health: 2640000
+    damage: 28730
+  - health: 2670000
+    damage: 29150
+  - health: 2690000
+    damage: 29280
+  - health: 2700000
+    damage: 29400
+  - health: 2710000
+    damage: 29530
+  - health: 2720000
+    damage: 29660
+  - health: 2740000
+    damage: 29920
+  - health: 2760000
+    damage: 30050
+  - health: 2770000
+    damage: 30180
+  - health: 2780000
+    damage: 30300
+  - health: 2790000
+    damage: 30430
+  - health: 2950000
+    damage: 31180
+  - health: 2970000
+    damage: 31310
+  - health: 2980000
+    damage: 31440
+  - health: 2990000
+    damage: 31570
+  - health: 3010000
+    damage: 31710
+  - health: 3040000
+    damage: 32060
+  - health: 3060000
+    damage: 32200
+  - health: 3070000
+    damage: 32330
+  - health: 3080000
+    damage: 32470
+  - health: 3100000
+    damage: 32600
+  - health: 3330000
+    damage: 33230
+  - health: 3340000
+    damage: 33360
+  - health: 3790000
+    damage: 34510
+  - health: 3810000
+    damage: 34650
+  - health: 3830000
+    damage: 34790
+  - health: 3850000
+    damage: 35090
+  - health: 3870000
+    damage: 35230
+  - health: 3890000
+    damage: 35380
+  - health: 3910000
+    damage: 35520
+  - health: 3920000
+    damage: 35670
+  - health: 3960000
+    damage: 36160
+  - health: 3980000
+    damage: 36300
+  - health: 4000000
+    damage: 36450
+  - health: 4020000
+    damage: 36600
+  - health: 4030000
+    damage: 36750
+  - health: 4060000
+    damage: 37050
+  - health: 4080000
+    damage: 37200
+  - health: 4100000
+    damage: 37350
+  - health: 4300000
+    damage: 37880
+  - health: 4310000
+    damage: 38030
+  - health: 4530000
+    damage: 38940
+  - health: 4540000
+    damage: 39100
+  - health: 4560000
+    damage: 39250
+  - health: 4580000
+    damage: 39410
+  - health: 4770000
+    damage: 39960
+  - health: 4810000
+    damage: 40290
+  - health: 4830000
+    damage: 40440
+  - health: 4850000
+    damage: 40600
+  - health: 4870000
+    damage: 40760
+  - health: 4890000
+    damage: 40920
+  - health: 5110000
+    damage: 41670
+  - health: 5130000
+    damage: 41840
+  - health: 5150000
+    damage: 42000
+  - health: 5170000
+    damage: 42160
+  - health: 5200000
+    damage: 42330
+  - health: 5230000
+    damage: 42670
+  - health: 5250000
+    damage: 42830
+  - health: 5270000
+    damage: 43000
+  - health: 5290000
+    damage: 43160
+  - health: 5320000
+    damage: 43330
+  - health: 5370000
+    damage: 43900
+  - health: 5390000
+    damage: 44060
+  - health: 5410000
+    damage: 44230
+  - health: 5440000
+    damage: 44400
+  - health: 5460000
+    damage: 44570
+  - health: 5510000
+    damage: 45030
+  - health: 5540000
+    damage: 45200
+  - health: 5560000
+    damage: 45370
+  - health: 5580000
+    damage: 45550
+  - health: 5600000
+    damage: 45720
+  - health: 5660000
+    damage: 46300
+  - health: 5680000
+    damage: 46480
+  - health: 5700000
+    damage: 46650
+  - health: 5730000
+    damage: 46830
+  - health: 5750000
+    damage: 47000
+  - health: 5940000
+    damage: 47840
+  - health: 5960000
+    damage: 48020
+  - health: 5990000
+    damage: 48200
+  - health: 6010000
+    damage: 48380
+  - health: 6040000
+    damage: 48560
+  - health: 6470000
+    damage: 49420
+  - health: 6500000
+    damage: 49600
+  - health: 6530000
+    damage: 49780
+  - health: 6550000
+    damage: 49970
+  - health: 6580000
+    damage: 50150
+  - health: 6620000
+    damage: 50530
+  - health: 7370000
+    damage: 50720
+  - health: 7400000
+    damage: 50900
+  - health: 7430000
+    damage: 51090
+  - health: 7460000
+    damage: 51270
+  - health: 7600000
+    damage: 52210
+  - health: 7630000
+    damage: 52400
+  - health: 7660000
+    damage: 52590
+  - health: 7690000
+    damage: 52780
+  - health: 7720000
+    damage: 52970
+  - health: 7760000
+    damage: 53360
+  - health: 8650000
+    damage: 53550
+  - health: 8680000
+    damage: 53750
+  - health: 8720000
+    damage: 53940
+  - health: 8750000
+    damage: 54130
+  - health: 8830000
+    damage: 54800
+  - health: 8870000
+    damage: 54990
+  - health: 8900000
+    damage: 55190
+  - health: 8930000
+    damage: 55380
+  - health: 9350000
+    damage: 56140
+  - health: 9410000
+    damage: 56550
+  - health: 9450000
+    damage: 56750
+  - health: 9480000
+    damage: 56950
+  - health: 9520000
+    damage: 57150
+  - health: 9550000
+    damage: 57350
+  - health: 9980000
+    damage: 58330
+  - health: 10020000
+    damage: 58540
+  - health: 10050000
+    damage: 58740
+  - health: 10090000
+    damage: 58950
+  - health: 10130000
+    damage: 59150
+  - health: 10230000
+    damage: 59720
+  - health: 10630000
+    damage: 60520
+  - health: 10670000
+    damage: 60730
+  - health: 10710000
+    damage: 60940
+  - health: 10750000
+    damage: 61150
+  - health: 10850000
+    damage: 61880
+  - health: 11350000
+    damage: 62710
+  - health: 11390000
+    damage: 62930
+  - health: 11430000
+    damage: 63150
+  - health: 11470000
+    damage: 63360
+  - health: 11540000
+    damage: 63820
+  - health: 11580000
+    damage: 64030
+  - health: 11620000
+    damage: 64250
+  - health: 11660000
+    damage: 64470
+  - health: 11710000
+    damage: 64690
+  - health: 11810000
+    damage: 65450
+  - health: 11850000
+    damage: 65670
+  - health: 11890000
+    damage: 65890
+  - health: 11940000
+    damage: 66110
+  - health: 11980000
+    damage: 66340
+  - health: 12050000
+    damage: 66800
+  - health: 12090000
+    damage: 67030
+  - health: 12140000
+    damage: 67250
+  - health: 12180000
+    damage: 67480
+  - health: 12220000
+    damage: 67700
+  - health: 14070000
+    damage: 71150
+  - health: 14120000
+    damage: 71380
+  - health: 14170000
+    damage: 71620
+  - health: 14220000
+    damage: 71860
+  - health: 14270000
+    damage: 72100
+  - health: 14360000
+    damage: 72590
+  - health: 14410000
+    damage: 72830
+  - health: 14460000
+    damage: 73070
+  - health: 14510000
+    damage: 73310
+  - health: 14560000
+    damage: 73560
+  - health: 14680000
+    damage: 74390
+  - health: 14730000
+    damage: 74630
+  - health: 14780000
+    damage: 74880
+  - health: 14830000
+    damage: 75120
+  - health: 14880000
+    damage: 75370
+  - health: 14970000
+    damage: 75880
+  - health: 15020000
+    damage: 76120
+  - health: 15070000
+    damage: 76370
+  - health: 15120000
+    damage: 76620
+  - health: 15180000
+    damage: 76870
+  - health: 15300000
+    damage: 77730
+  - health: 15360000
+    damage: 77980
+  - health: 15410000
+    damage: 78230
+  - health: 15460000
+    damage: 78480
+  - health: 15510000
+    damage: 78730
+  - health: 15650000
+    damage: 79420
+  - health: 15700000
+    damage: 79680
+  - health: 15760000
+    damage: 79930
+  - health: 15810000
+    damage: 80190
+  - health: 15860000
+    damage: 80440
+  - health: 16560000
+    damage: 81730
+  - health: 16610000
+    damage: 81990
+  - health: 16670000
+    damage: 82250
+  - health: 16720000
+    damage: 82510
+  - health: 16780000
+    damage: 82770
+  - health: 16870000
+    damage: 83320
+  - health: 16930000
+    damage: 83580
+  - health: 16980000
+    damage: 83840
+  - health: 17040000
+    damage: 84110
+  - health: 17100000
+    damage: 84370
+  - health: 17240000
+    damage: 85290
+  - health: 17300000
+    damage: 85560
+  - health: 17790000
+    damage: 86680
+  - health: 17850000
+    damage: 86950
+  - health: 17910000
+    damage: 87220
+  - health: 18010000
+    damage: 87790
+  - health: 18070000
+    damage: 88060
+  - health: 18130000
+    damage: 88330
+  - health: 18820000
+    damage: 89490
+  - health: 18880000
+    damage: 89770
+  - health: 19180000
+    damage: 91180
+  - health: 19240000
+    damage: 91460
+  - health: 19300000
+    damage: 91740
+  - health: 19360000
+    damage: 92020
+  - health: 19430000
+    damage: 92300
+  - health: 19530000
+    damage: 92890
+  - health: 19590000
+    damage: 93180
+  - health: 19660000
+    damage: 93460
+  - health: 20540000
+    damage: 94680
+  - health: 20600000
+    damage: 94970
+  - health: 22030000
+    damage: 96450
+  - health: 22100000
+    damage: 96750
+  - health: 22180000
+    damage: 97040
+  - health: 22250000
+    damage: 97330
+  - health: 26240000
+    damage: 101560
+  - health: 26380000
+    damage: 102200
+  - health: 26460000
+    damage: 102510
+  - health: 26550000
+    damage: 102820
+  - health: 26630000
+    damage: 103130
+  - health: 26720000
+    damage: 103430
+  - health: 26920000
+    damage: 104520
+  - health: 27010000
+    damage: 104830
+  - health: 27090000
+    damage: 105140
+  - health: 27180000
+    damage: 105450
+  - health: 27260000
+    damage: 105760
+  - health: 27490000
+    damage: 106640
+  - health: 27570000
+    damage: 106950
+  - health: 27660000
+    damage: 107270
+  - health: 27750000
+    damage: 107580
+  - health: 27830000
+    damage: 107900
+  - health: 28050000
+    damage: 109020
+  - health: 28130000
+    damage: 109340
+  - health: 28220000
+    damage: 109660
+  - health: 28310000
+    damage: 109980
+  - health: 28400000
+    damage: 110300
+  - health: 28540000
+    damage: 110980
+  - health: 28630000
+    damage: 111300
+  - health: 28720000
+    damage: 111630
+  - health: 28810000
+    damage: 111950
+  - health: 28900000
+    damage: 112280
+  - health: 30130000
+    damage: 113990
+  - health: 30230000
+    damage: 114320
+  - health: 30320000
+    damage: 114650
+  - health: 30410000
+    damage: 114980
+  - health: 30500000
+    damage: 115310
+  - health: 34030000
+    damage: 116020
+  - health: 34130000
+    damage: 116350
+  - health: 34240000
+    damage: 116680
+  - health: 34340000
+    damage: 117020
+  - health: 34450000
+    damage: 117350
+  - health: 35850000
+    damage: 119460
+  - health: 35960000
+    damage: 119800
+  - health: 36070000
+    damage: 120140
+  - health: 36180000
+    damage: 120480
+  - health: 36290000
+    damage: 120830
+  - health: 36470000
+    damage: 121550
+  - health: 36580000
+    damage: 121900
+  - health: 36690000
+    damage: 122240
+  - health: 36800000
+    damage: 122590
+  - health: 36910000
+    damage: 122930
+  - health: 37180000
+    damage: 124150
+  - health: 37290000
+    damage: 124500
+  - health: 37400000
+    damage: 124850
+  - health: 37510000
+    damage: 125200
+  - health: 37630000
+    damage: 125550
+  - health: 37810000
+    damage: 126300
+  - health: 37920000
+    damage: 126650
+  - health: 38030000
+    damage: 127000
+  - health: 38150000
+    damage: 127360
+  - health: 38260000
+    damage: 127710
+  - health: 42260000
+    damage: 130900
+  - health: 42390000
+    damage: 131270
+  - health: 42510000
+    damage: 131630
+  - health: 48180000
+    damage: 135960
+  - health: 48320000
+    damage: 136330
+  - health: 48690000
+    damage: 137380
+  - health: 48830000
+    damage: 137760
+  - health: 48980000
+    damage: 138140
+  - health: 54520000
+    damage: 138520
+  - health: 54680000
+    damage: 138900
+  - health: 55070000
+    damage: 140250
+  - health: 55230000
+    damage: 140630
+  - health: 55390000
+    damage: 141020
+  - health: 55560000
+    damage: 141400
+  - health: 55720000
+    damage: 141790
+  - health: 55980000
+    damage: 142610
+  - health: 56140000
+    damage: 142990
+  - health: 56310000
+    damage: 143380
+  - health: 56470000
+    damage: 143770
+  - health: 56630000
+    damage: 144160
+  - health: 57030000
+    damage: 145540
+  - health: 57190000
+    damage: 145930
+  - health: 57360000
+    damage: 146330
+  - health: 57520000
+    damage: 146720
+  - health: 57690000
+    damage: 147120
+  - health: 57960000
+    damage: 147960
+  - health: 58120000
+    damage: 148350
+  - health: 60600000
+    damage: 150240
+  - health: 60770000
+    damage: 150640
+  - health: 62450000
+    damage: 152550
+  - health: 65500000
+    damage: 155440
+  - health: 65690000
+    damage: 155860
+  - health: 68490000
+    damage: 157830
+  - health: 68690000
+    damage: 158250
+  - health: 68880000
+    damage: 158670
+  - health: 69200000
+    damage: 159570
+  - health: 69390000
+    damage: 159990
+  - health: 69590000
+    damage: 160410
+  - health: 69780000
+    damage: 160840
+  - health: 69980000
+    damage: 161260
+  - health: 70460000
+    damage: 162770
+  - health: 70660000
+    damage: 163200
+  - health: 70850000
+    damage: 163620
+  - health: 71050000
+    damage: 164050
+  - health: 71250000
+    damage: 164480
+  - health: 71570000
+    damage: 165400
+  - health: 71770000
+    damage: 165830
+  - health: 71970000
+    damage: 166260
+  - health: 72170000
+    damage: 166700
+  - health: 72370000
+    damage: 167130
+  - health: 72860000
+    damage: 168680
+  - health: 73060000
+    damage: 169110
+  - health: 73260000
+    damage: 169550
+  - health: 73460000
+    damage: 169990
+  - health: 73660000
+    damage: 170430
+  - health: 74200000
+    damage: 171670
+  - health: 74400000
+    damage: 172110
+  - health: 74600000
+    damage: 172560
+  - health: 74810000
+    damage: 173000
+  - health: 75010000
+    damage: 173450
+  - health: 80070000
+    damage: 175910
+  - health: 80290000
+    damage: 176360
+  - health: 80510000
+    damage: 176810
+  - health: 80730000
+    damage: 177260
+  - health: 80940000
+    damage: 177710
+  - health: 81310000
+    damage: 178680
+  - health: 81530000
+    damage: 179140
+  - health: 81750000
+    damage: 179590
+  - health: 81970000
+    damage: 180050
+  - health: 82190000
+    damage: 180500
+  - health: 82730000
+    damage: 182140
+  - health: 82960000
+    damage: 182600
+  - health: 85930000
+    damage: 184890
+  - health: 86160000
+    damage: 185360
+  - health: 86390000
+    damage: 185820
+  - health: 86770000
+    damage: 186830
+  - health: 87000000
+    damage: 187290
+  - health: 87230000
+    damage: 187770
+  - health: 87470000
+    damage: 188240
+  - health: 87700000
+    damage: 188710
+  - health: 100040000
+    damage: 200170
+  - health: 100310000
+    damage: 200670
+  - health: 100570000
+    damage: 201170
+  - health: 100840000
+    damage: 201670
+  - health: 101100000
+    damage: 202170
+  - health: 101540000
+    damage: 203250
+  - health: 101810000
+    damage: 203750
+  - health: 102080000
+    damage: 204260
+  - health: 102350000
+    damage: 204760
+  - health: 102620000
+    damage: 205270
+  - health: 106890000
+    damage: 208110
+  - health: 107170000
+    damage: 208620
+  - health: 107450000
+    damage: 209140
+  - health: 107730000
+    damage: 209650
+  - health: 108010000
+    damage: 210170
+  - health: 108480000
+    damage: 211270
+  - health: 108760000
+    damage: 211790
+  - health: 109040000
+    damage: 212310
+  - health: 109330000
+    damage: 212830
+  - health: 109610000
+    damage: 213350
+  - health: 110310000
+    damage: 215210
+  - health: 110600000
+    damage: 215730
+  - health: 110880000
+    damage: 216260
+  - health: 111170000
+    damage: 216780
+  - health: 111450000
+    damage: 217310
+  - health: 112210000
+    damage: 218800
+  - health: 112500000
+    damage: 219330
+  - health: 112790000
+    damage: 219860
+  - health: 113080000
+    damage: 220390
+  - health: 113370000
+    damage: 220920
+  - health: 118480000
+    damage: 225050
+  - health: 118780000
+    damage: 225590
+  - health: 119090000
+    damage: 226140
+  - health: 119390000
+    damage: 226680
+  - health: 132860000
+    damage: 227220
+  - health: 133420000
+    damage: 228390
+  - health: 133760000
+    damage: 228940
+  - health: 134100000
+    damage: 229490
+  - health: 134440000
+    damage: 230030
+  - health: 134780000
+    damage: 230580
+  - health: 143760000
+    damage: 233710
+  - health: 144120000
+    damage: 234270
+  - health: 144490000
+    damage: 234820
+  - health: 144850000
+    damage: 235380
+  - health: 145220000
+    damage: 235940
+  - health: 145820000
+    damage: 237140
+  - health: 151860000
+    damage: 240080
+  - health: 152240000
+    damage: 240650
+  - health: 152620000
+    damage: 241210
+  - health: 153010000
+    damage: 241780
+  - health: 154810000
+    damage: 244770
+  - health: 155200000
+    damage: 245350
+  - health: 155590000
+    damage: 245920
+  - health: 155970000
+    damage: 246500
+  - health: 156360000
+    damage: 247080
+  - health: 157000000
+    damage: 248320
+  - health: 161180000
+    damage: 251390
+  - health: 161580000
+    damage: 251980
+  - health: 161980000
+    damage: 252570
+  - health: 162380000
+    damage: 253150
+  - health: 163370000
+    damage: 255270
+  - health: 163770000
+    damage: 255860
+  - health: 164170000
+    damage: 256450
+  - health: 164580000
+    damage: 257050
+  - health: 170310000
+    damage: 260220
+  - health: 171000000
+    damage: 261510
+  - health: 171420000
+    damage: 262120
+  - health: 171840000
+    damage: 262720
+  - health: 172260000
+    damage: 263330
+  - health: 172680000
+    damage: 263940
+  - health: 179800000
+    damage: 267450
+  - health: 180240000
+    damage: 268060
+  - health: 180680000
+    damage: 268680
+  - health: 181120000
+    damage: 269290
+  - health: 181560000
+    damage: 269910
+  - health: 182710000
+    damage: 271660
+  - health: 183150000
+    damage: 272290
+  - health: 183600000
+    damage: 272910
+  - health: 184040000
+    damage: 273530
+  - health: 184490000
+    damage: 274150
+  - health: 185580000
+    damage: 276390
+  - health: 186030000
+    damage: 277020
+  - health: 186480000
+    damage: 277650
+  - health: 186930000
+    damage: 278280
+  - health: 187380000
+    damage: 278910
+  - health: 188120000
+    damage: 280270
+  - health: 188570000
+    damage: 280900
+  - health: 189020000
+    damage: 281540
+  - health: 189470000
+    damage: 282170
+  - health: 189930000
+    damage: 282810
+  - health: 191050000
+    damage: 285100
+  - health: 191500000
+    damage: 285740
+  - health: 191960000
+    damage: 286380
+  - health: 192420000
+    damage: 287020
+  - health: 192870000
+    damage: 287660
+  - health: 193630000
+    damage: 289050
+  - health: 194090000
+    damage: 289700
+  - health: 194550000
+    damage: 290340
+  - health: 195010000
+    damage: 290990
+  - health: 195470000
+    damage: 291640
+  - health: 250130000
+    damage: 308490
+  - health: 250720000
+    damage: 309170
+  - health: 251310000
+    damage: 309860
+  - health: 251900000
+    damage: 310550
+  - health: 252490000
+    damage: 311240
+  - health: 253470000
+    damage: 312710
+  - health: 254060000
+    damage: 313410
+  - health: 254660000
+    damage: 314100
+  - health: 255250000
+    damage: 314790
+  - health: 255850000
+    damage: 315480
+  - health: 285620000
+    damage: 317980
+  - health: 286280000
+    damage: 318680
+  - health: 286950016
+    damage: 319380
+  - health: 298460000
+    damage: 323280
+  - health: 299150016
+    damage: 323980
+  - health: 300289984
+    damage: 325510
+  - health: 300990016
+    damage: 326220
+  - health: 301680000
+    damage: 326930
+  - health: 302380000
+    damage: 327650
+  - health: 303080000
+    damage: 328360
+  - health: 304790016
+    damage: 330930
+  - health: 305500000
+    damage: 331650
+  - health: 306200000
+    damage: 332370
+  - health: 306910016
+    damage: 333090
+  - health: 307609984
+    damage: 333820
+  - health: 309449984
+    damage: 335870
+  - health: 310160000
+    damage: 336600
+  - health: 310880000
+    damage: 337330
+  - health: 311590016
+    damage: 338050
+  - health: 312300000
+    damage: 338780
+  - health: 325040000
+    damage: 343120
+  - health: 325780000
+    damage: 343860
+  - health: 326529984
+    damage: 344590
+  - health: 327270016
+    damage: 345330
+  - health: 328009984
+    damage: 346070
+  - health: 329240000
+    damage: 347670
+  - health: 340460000
+    damage: 351900
+  - health: 341240000
+    damage: 352650
+  - health: 342009984
+    damage: 353400
+  - health: 342780000
+    damage: 354160
+  - health: 357720000
+    damage: 360450
+  - health: 358529984
+    damage: 361220
+  - health: 359329984
+    damage: 361980
+  - health: 360140000
+    damage: 362750
+  - health: 360960000
+    damage: 363520
+  - health: 362289984
+    damage: 365190
+  - health: 363100000
+    damage: 365960
+  - health: 363920000
+    damage: 366730
+  - health: 364729984
+    damage: 367510
+  - health: 365550016
+    damage: 368280
+  - health: 369390016
+    damage: 372400
+  - health: 370209984
+    damage: 373180
+  - health: 371040000
+    damage: 373970
+  - health: 371870016
+    damage: 374750
+  - health: 372700000
+    damage: 375540
+  - health: 374060000
+    damage: 377240
+  - health: 374889984
+    damage: 378030
+  - health: 375720000
+    damage: 378820
+  - health: 376560000
+    damage: 379610
+  - health: 377390016
+    damage: 380400
+  - health: 401990016
+    damage: 385190
+  - health: 402880000
+    damage: 385990
+  - health: 403769984
+    damage: 386790
+  - health: 414209984
+    damage: 391470
+  - health: 469089984
+    damage: 404050
+  - health: 470780000
+    damage: 405870
+  - health: 471820000
+    damage: 406710
+  - health: 472849984
+    damage: 407550
+  - health: 473889984
+    damage: 408390
+  - health: 474929984
+    damage: 409240
+  - health: 477480000
+    damage: 412300
+  - health: 478520000
+    damage: 413150
+  - health: 479569984
+    damage: 414000
+  - health: 533480000
+    damage: 414850
+  - health: 534649984
+    damage: 415700
+  - health: 537689984
+    damage: 418150
+  - health: 538860032
+    damage: 419000
+  - health: 540030016
+    damage: 419860
+  - health: 541209984
+    damage: 420720
+  - health: 542380032
+    damage: 421580
+  - health: 545260032
+    damage: 424700
+  - health: 546449984
+    damage: 425570
+  - health: 547630016
+    damage: 426440
+  - health: 548809984
+    damage: 427310
+  - health: 550000000
+    damage: 428180
+  - health: 551950016
+    damage: 430060
+  - health: 553139968
+    damage: 430930
+  - health: 554329984
+    damage: 431810
+  - health: 555529984
+    damage: 432680
+  - health: 556720000
+    damage: 433560
+  - health: 579249984
+    damage: 438930
+  - health: 580489984
+    damage: 439810
+  - health: 581729984
+    damage: 440700
+  - health: 582979968
+    damage: 441590
+  - health: 584230016
+    damage: 442480
+  - health: 586289984
+    damage: 444410
+  - health: 688560000
+    damage: 463250
+  - health: 690030016
+    damage: 464180
+  - health: 691500032
+    damage: 465110
+  - health: 692969984
+    damage: 466040
+  - health: 742099968
+    damage: 482950
 --- !u!1001 &1993175610
 PrefabInstance:
   m_ObjectHideFlags: 0

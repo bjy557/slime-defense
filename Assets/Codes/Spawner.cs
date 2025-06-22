@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     int level;
     float timer;
 
+    int wave;
+
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
@@ -31,18 +33,15 @@ public class Spawner : MonoBehaviour
     {
         GameObject enemy = GameManager.instance.pool.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        // level is 0~1 random
-        level = Random.Range(0, 2);
-        enemy.GetComponent<Enemy>().Init(spawnData[level]);
+        
+        wave = GameManager.instance.wave;
+        enemy.GetComponent<Enemy>().Init(spawnData[wave]);
     }
 }
 
 [System.Serializable]
 public class SpawnData
 {
-    public float spawnTime;
-    public int spriteType;
-    public int health;
-    public float speed;
-    public float damage;
+    public double health;
+    public double damage;
 }
