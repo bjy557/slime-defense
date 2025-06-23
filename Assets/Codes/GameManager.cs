@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool isLive;
     public float gameTime;
     public int wave;
+    public float spawnTime;
 
     [Header("# Player Info")]
     public double health;
@@ -37,11 +38,10 @@ public class GameManager : MonoBehaviour
         health = maxHealth;
 
         wave = 1;
+        spawnTime = 2;
 
         // Attack 아이템 중 level이 0인 것을 찾아 무기 생성
         Item[] items = FindObjectsByType<Item>(FindObjectsSortMode.None);
-
-        Weapon weapon = new Weapon();
 
         GameObject sharedWeapon = new GameObject("FireBall");
         sharedWeapon.AddComponent<Weapon>();

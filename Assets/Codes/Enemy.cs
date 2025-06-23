@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
         if (randomIndex < 8)
         {
             anim.runtimeAnimatorController = animCon[0]; // 80% 확률로 첫 번째 컨트롤러
-            speed = 0.2f;
+            speed = 0.6f;
             maxHealth = data.health;
             health = data.health;
             damage = data.damage;
@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
         else
         {
             anim.runtimeAnimatorController = animCon[1]; // 20% 확률로 두 번째 컨트롤러
-            speed = 0.7f; // 속도가 더 빠른 적
+            speed = 1.2f; // 속도가 더 빠른 적
             maxHealth = data.health * 0.7f;
             health = data.health * 0.7f;
             damage = data.damage * 0.7f;

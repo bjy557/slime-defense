@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer > 1)
+        if (timer > Mathf.Max(GameManager.instance.spawnTime, 0.5f))
         {
             timer = 0;
             Spawn();
