@@ -33,8 +33,11 @@ public class Weapon : MonoBehaviour
 
                 if (timer > speed)
                 {
-                    timer = 0f;
-                    Fire();
+                    if (player.scanner.nearestTarget && IsTargetInRange())
+                    {
+                        Fire();
+                        timer = 0f;
+                    }
                 }
                 break;
         }
@@ -159,5 +162,11 @@ public class Weapon : MonoBehaviour
         bullet.GetComponent<Bullet>().Init(newDamage, count, dir);
 
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Range);
+    }
+
+    bool IsTargetInRange()
+    {
+        float distance = Vector3.Distance(transform.position, player.scanner.nearestTarget.position);
+        return distance <= player.scanner.scanRange;
     }
 }
