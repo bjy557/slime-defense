@@ -8,23 +8,34 @@ public class GameManager : MonoBehaviour
 
     [Header("# Game Control")]
     public bool isLive;
-    public float gameTime;
     public int wave;
     public float spawnTime;
 
     [Header("# Player Info")]
     public double health;
     public double maxHealth;
+    public float regen;
+    public float defense;
+    public float reflection;
+    public float lifeSteal;
+    public float goldMulti;
+    public float goldWave;
+    public float coinMulti;
+    public float coinWave;
     public int level;
-    public int kill;
-    public int exp;
-    public int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
+    public double gold;
+    public double coin;
 
     [Header("# Game Object")]
     public PoolManager pool;
     public Player player;
     public GameObject uiResult;
     public GameObject enemyCleaner;
+
+    private float waveDuration = 20f;
+    private float waveCooldown = 4f;
+    private float waveTimer = 0f;
+    private bool isCooldown = false;
 
     private void Awake()
     {
@@ -35,13 +46,27 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         isLive = true;
+
+        maxHealth = 5;
+        regen = 0;
+        defense = 0;
+        reflection = 0;
+        lifeSteal = 0;
+        goldMulti = 1;
+        goldWave = 0;
+        coinMulti = 1;
+        coinWave = 1;
+
         health = maxHealth;
 
-        wave = 1;
+        wave = 0;
         spawnTime = 2;
 
-        // Attack æ∆¿Ã≈€ ¡ﬂ level¿Ã 0¿Œ ∞Õ¿ª √£æ∆ π´±‚ ª˝º∫
-        Item[] items = FindObjectsByType<Item>(FindObjectsSortMode.None);
+        gold = 0;
+        coin = 0;
+
+        // Attack ?????? ?? level?? 0?? ???? ???? ???? ????
+        Item[] items = Resources.FindObjectsOfTypeAll<Item>();
 
         GameObject sharedWeapon = new GameObject("FireBall");
         sharedWeapon.AddComponent<Weapon>();
@@ -67,6 +92,11 @@ public class GameManager : MonoBehaviour
                 case ItemData.ItemType.Defense:
                 case ItemData.ItemType.Reflection:
                 case ItemData.ItemType.LifeSteal:
+
+                case ItemData.ItemType.GoldMultiplier:
+                case ItemData.ItemType.GoldPerWave:
+                case ItemData.ItemType.CoinMultiplier:
+                case ItemData.ItemType.CoinPerWave:
                     item.gear = sharedGear.GetComponent<Gear>();
                     break;
                 default:
@@ -82,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 1;
         StartCoroutine(GameOverRoutine());
     }
 
@@ -114,23 +145,37 @@ public class GameManager : MonoBehaviour
         if (!isLive)
             return;
 
-        gameTime += Time.deltaTime;
-    }
-
-    public void GetExp()
-    {
-        if (!isLive)
-            return;
-
-        exp++;
-
-        if (exp == nextExp[level])
+        if (isCooldown)
         {
-            level++;
-            exp = 0;
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
+            waveTimer += Time.deltaTime;
+            if (waveTimer >= waveCooldown)
+            {
+                waveTimer = 0f;
+                isCooldown = false;
+                wave++;
+
+                // waveÍ∞Ä Ï¶ùÍ∞ÄÌïòÎ©¥ wave per gold, coin Ïã§Ìñâ
+                gold += goldWave;
+            }
+        }
+        else
+        {
+            waveTimer += Time.deltaTime;
+            if (waveTimer >= waveDuration)
+            {
+                waveTimer = 0f;
+                isCooldown = true;
+            }
         }
     }
+
+    public bool IsCooldown()
+    {
+        return isCooldown;
+    }
+    public float waveDurationTimer => waveDuration;
+    public float waveProgressTimer => waveTimer;
+    public float waveCooldownTimer => waveCooldown;
 
     public void Stop()
     {

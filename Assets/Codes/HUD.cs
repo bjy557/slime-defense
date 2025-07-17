@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Waves, Level, Kill, Time, Health }
+    public enum InfoType { SlimeCount, Level, Kill, Coin, Round, Health }
     public InfoType type;
 
     Text myText;
@@ -19,22 +19,29 @@ public class HUD : MonoBehaviour
     {
         switch (type)
         {
-            case InfoType.Waves:
-                float curExp = GameManager.instance.exp;
-                float maxExp = GameManager.instance.nextExp[GameManager.instance.level];
-                mySlider.value = curExp / maxExp;
+            case InfoType.SlimeCount:
+                if (GameManager.instance.IsCooldown())
+                {
+                    float cooldownLeft = GameManager.instance.waveCooldownTimer - GameManager.instance.waveProgressTimer;
+                    mySlider.value = Mathf.Clamp01(cooldownLeft / GameManager.instance.waveCooldownTimer);
+                }
+                else
+                {
+                    float stageLeft = GameManager.instance.waveDurationTimer - GameManager.instance.waveProgressTimer;
+                    mySlider.value = Mathf.Clamp01(stageLeft / GameManager.instance.waveDurationTimer);
+                }
                 break;
             case InfoType.Level:
                 myText.text = string.Format("Lv.{0:F0}", GameManager.instance.level);
                 break;
             case InfoType.Kill:
-                myText.text = string.Format("{0:F0}", GameManager.instance.kill);
+                myText.text = string.Format("{0:F0}", GameManager.instance.gold);
                 break;
-            case InfoType.Time:
-                float gameTime =GameManager.instance.gameTime;
-                int min = Mathf.FloorToInt(gameTime / 60);
-                int sec = Mathf.FloorToInt(gameTime % 60);
-                myText.text = string.Format("{0:D2}:{1:D2}", min, sec);
+            case InfoType.Coin:
+                myText.text = string.Format("{0:F0}", GameManager.instance.coin);
+                break;
+            case InfoType.Round:
+                myText.text = $"Stage {GameManager.instance.wave + 1}";
                 break;
             case InfoType.Health:
                 double curHealth = GameManager.instance.health;

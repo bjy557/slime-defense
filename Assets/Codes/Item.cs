@@ -30,14 +30,13 @@ public class Item : MonoBehaviour
 
     private void LateUpdate()
     {
-        // 영어의 경우 너무 길어져서 줄바꿈 필요
+        // ?????? ???? ???? ???????? ?????? ????
         //textName.text = data.itemName.Replace(" ", "\n");
         textName.text = data.itemName;
 
         switch (data.itemType)
         {
             case ItemData.ItemType.CriticalChance:
-            case ItemData.ItemType.Defense:
             case ItemData.ItemType.Reflection:
             case ItemData.ItemType.LifeSteal:
                 textValue.text = data.values[level].ToString() + "%";
@@ -99,15 +98,71 @@ public class Item : MonoBehaviour
                 float nextRange = data.values[level];
                 weapon.UpgradeScanRange(nextRange);
                 break;
+
+            case ItemData.ItemType.Health:
+                level++;
+
+                double nextHealth = data.values[level];
+                gear.UpgradeMaxHealth(nextHealth);
+                break;
+            case ItemData.ItemType.Regeneration:
+                level++;
+
+                float nextRegen = data.values[level];
+                gear.UpgradeRegen(nextRegen);
+                break;
+            case ItemData.ItemType.Defense:
+                level++;
+
+                float nextDef = data.values[level];
+                gear.UpgradeDefense(nextDef);
+                break;
+            case ItemData.ItemType.Reflection:
+                level++;
+
+                float nextReflection = data.values[level];
+                gear.UpgradeReflection(nextReflection);
+                break;
+            case ItemData.ItemType.LifeSteal:
+                level++;
+
+                float nextLifeSteal = data.values[level];
+                gear.UpgradeLifeSteal(nextLifeSteal);
+                break;
+            case ItemData.ItemType.GoldMultiplier:
+                level++;
+
+                float nextGoldMulti = data.values[level];
+                gear.UpgradeGoldMulti(nextGoldMulti);
+                break;
+            case ItemData.ItemType.GoldPerWave:
+                level++;
+
+                float nextGoldWave = data.values[level];
+                gear.UpgradeGoldWave(nextGoldWave);
+                break;
+            case ItemData.ItemType.CoinMultiplier:
+                level++;
+
+                float nextCoinMulti = data.values[level];
+                gear.UpgradeCoinMulti(nextCoinMulti);
+                break;
+            case ItemData.ItemType.CoinPerWave:
+                level++;
+
+                float nextCoinWave = data.values[level];
+                gear.UpgradeCoinWave(nextCoinWave);
+                break;
+
             default:
                 break;
         }
 
 
 
-        if (level == data.values.Length)
+        if (level == data.values.Length - 1)
         {
-            GetComponent<Button>().interactable = false;
+            GetComponentInChildren<Button>().interactable = false;
         }
 
     }

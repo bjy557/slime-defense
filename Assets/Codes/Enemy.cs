@@ -10,6 +10,16 @@ public class Enemy : MonoBehaviour
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
 
+    enum EnemyType
+    {
+        Normal,
+        Speed,
+        Tank,
+        Range,
+        Boss
+    }
+    EnemyType enemyType;
+
     bool isLive;
     bool isKnockback;
 
@@ -77,11 +87,11 @@ public class Enemy : MonoBehaviour
 
     public void Init(SpawnData data)
     {
-        // 8 : 2 È®·ü·Î 0¹ø È¤Àº 1¹ø ¾Ö´Ï¸ÞÀÌ¼Ç ÄÁÆ®·Ñ·¯ ¹× ´É·ÂÄ¡ ¼öÁ¤ ÇØ¾ßÇÔ
         int randomIndex = Random.Range(0, 10);
         if (randomIndex < 8)
         {
-            anim.runtimeAnimatorController = animCon[0]; // 80% È®·ü·Î Ã¹ ¹øÂ° ÄÁÆ®·Ñ·¯
+            enemyType = EnemyType.Normal;
+            anim.runtimeAnimatorController = animCon[0];
             speed = 0.6f;
             maxHealth = data.health;
             health = data.health;
@@ -89,8 +99,9 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            anim.runtimeAnimatorController = animCon[1]; // 20% È®·ü·Î µÎ ¹øÂ° ÄÁÆ®·Ñ·¯
-            speed = 1.2f; // ¼Óµµ°¡ ´õ ºü¸¥ Àû
+            enemyType = EnemyType.Speed;
+            anim.runtimeAnimatorController = animCon[1];
+            speed = 1.2f;
             maxHealth = data.health * 0.7f;
             health = data.health * 0.7f;
             damage = data.damage * 0.7f;
@@ -102,31 +113,10 @@ public class Enemy : MonoBehaviour
         if (!collision.CompareTag("Bullet") || !isLive)
             return;
 
-        health -= collision.GetComponent<Bullet>().damage;
+        float curDamage = collision.GetComponent<Bullet>().damage;
         StartCoroutine(KnockBack());
 
-        if (health > 0)
-        {
-            // Live, Hit Action
-            anim.SetTrigger("Hit");
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Hit);
-        }
-        else
-        {
-            // Die
-            isLive = false;
-            coll.enabled = false;
-            rigid.simulated = false;
-            spriter.sortingOrder = 1;
-            anim.SetBool("Dead", true);
-            GameManager.instance.kill++;
-            GameManager.instance.GetExp();
-
-            if (GameManager.instance.isLive)
-            {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
-            }
-        }
+        ApplyDamage(curDamage, isFromBullet: true);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -139,7 +129,11 @@ public class Enemy : MonoBehaviour
 
         if (Time.time - lastAttackTime > damageCooldown)
         {
-            GameManager.instance.health -= damage;
+            double realDamage = damage - GameManager.instance.defense;
+            if (realDamage < 0)
+                realDamage = 0;
+
+            GameManager.instance.health -= realDamage;
             lastAttackTime = Time.time;
 
             if (GameManager.instance.health <= 0)
@@ -151,6 +145,52 @@ public class Enemy : MonoBehaviour
                 GameManager.instance.player.GetComponent<Animator>().SetTrigger("Dead");
                 GameManager.instance.GameOver();
             }
+
+            // ë°˜ì‚¬ ë°ë¯¸ì§€ ì²˜ë¦¬
+            float reflection = GameManager.instance.reflection;
+            double reflectedDamage = maxHealth * reflection / 100;
+            ApplyDamage(reflectedDamage);
+        }
+    }
+
+    private void ApplyDamage(double damageAmount, bool isFromBullet = false)
+    {
+        health -= damageAmount;
+
+        if (isFromBullet)
+        {
+            float lifeSteal = GameManager.instance.lifeSteal;
+            GameManager.instance.health += damageAmount * lifeSteal / 100;
+            if (GameManager.instance.health > GameManager.instance.maxHealth)
+                GameManager.instance.health = GameManager.instance.maxHealth;
+        }
+
+        if (health > 0)
+        {
+            anim.SetTrigger("Hit");
+            AudioManager.instance.PlaySfx(AudioManager.Sfx.Hit);
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isLive = false;
+        coll.enabled = false;
+        rigid.simulated = false;
+        spriter.sortingOrder = 1;
+        anim.SetBool("Dead", true);
+
+        float defaultGold = GameManager.instance.wave / 10 + 1;
+
+        GameManager.instance.gold += (defaultGold * GameManager.instance.goldMulti);
+
+        if (GameManager.instance.isLive)
+        {
+            AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
         }
     }
 
@@ -163,10 +203,10 @@ public class Enemy : MonoBehaviour
     {
         isKnockback = true;
 
-        yield return wait; // ´ÙÀ½ ÇÏ³ªÀÇ ¹°¸® ÇÁ·¹ÀÓ µô·¹ÀÌ
+        yield return wait; // ???? ?????? ???? ?????? ??????
         Vector3 playerPos = GameManager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
-        rigid.AddForce(dirVec.normalized * 0.5f, ForceMode2D.Impulse); // ³Ë¹é Á¶Àý
+        rigid.AddForce(dirVec.normalized * 0.5f, ForceMode2D.Impulse); // ???? ????
 
         yield return knockbackTime;
 

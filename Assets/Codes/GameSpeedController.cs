@@ -7,7 +7,7 @@ public class GameSpeedController : MonoBehaviour
     public Button speedDownButton;
     public Text speedText;
 
-    private float[] speedLevels = { 0, 0.5f, 1f, 1.5f, 2f, 2.5f, 3f, 3.5f, 4f, 4.5f, 5f};
+    private float[] speedLevels = { 0, 0.5f, 1f, 1.5f, 2f, 2.5f, 3f, 3.5f, 4f, 4.5f, 5f, 6f, 7f, 8f, 9f, 10f, 20f};
     private int currentLevel = 2; // 1f
 
     private void Start()
