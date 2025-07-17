@@ -14,6 +14,8 @@ public class Spawner : MonoBehaviour
     int monstersPerWave;
     float spawnInterval = 1f;
 
+    bool bossSpawned = false;
+
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
@@ -30,14 +32,12 @@ public class Spawner : MonoBehaviour
 
             currentSpawned = 0;
 
-            // 👇 몬스터 수 공식 적용
+            // calculate monsters per wave based on wave number
             monstersPerWave = Mathf.RoundToInt(14.9f * Mathf.Pow(wave + 1, 0.23f));
-            monstersPerWave = Mathf.Max(monstersPerWave, 1); // 최소 1마리
+            monstersPerWave = Mathf.Max(monstersPerWave, 1); // minimum 1 monster per wave
 
-            // 👇 스폰 간격 계산
-            spawnInterval = Mathf.Max(20f / monstersPerWave, 0.1f); // 너무 빠른 스폰 방지
-
-            //Debug.Log($"[Wave {wave + 1}] 몬스터 수: {monstersPerWave}, 스폰 간격: {spawnInterval:F2}초");
+            // calculate spawn interval based on monsters per wave
+            spawnInterval = Mathf.Max(20f / monstersPerWave, 0.1f); // prevent too short intervals
         }
 
         timer += Time.deltaTime;
@@ -46,8 +46,11 @@ public class Spawner : MonoBehaviour
         {
             timer = 0;
             Spawn();
+        }
 
-            //Debug.Log($"[Wave {wave + 1}] 몬스터 스폰됨: {currentSpawned + 1}/{monstersPerWave}");
+        if (GameManager.instance.wave % 10 == 0 && bossSpawned)
+        {
+            bossSpawned = false; // false in next wave
         }
     }
 
@@ -57,6 +60,17 @@ public class Spawner : MonoBehaviour
             return;
 
         GameObject enemy = GameManager.instance.pool.Get(0);
+
+        if (GameManager.instance.wave % 10 == 9 && !bossSpawned)
+        {
+            enemy.GetComponent<Enemy>().isBoss = true; // set boss flag
+            bossSpawned = true;
+        }
+        else
+        {
+            enemy.GetComponent<Enemy>().isBoss = false;
+        }
+
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         
         wave = GameManager.instance.wave;

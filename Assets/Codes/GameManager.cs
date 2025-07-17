@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
 
                 // wave가 증가하면 wave per gold, coin 실행
                 gold += goldWave;
+                coin += coinWave;
             }
         }
         else

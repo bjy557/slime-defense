@@ -193,9 +193,13 @@ MonoBehaviour:
   speed: 0
   health: 0
   maxHealth: 0
+  damage: 0
   animCon:
   - {fileID: 9100000, guid: 0b44a242b53fc6a479a42baffb230e87, type: 2}
   - {fileID: 9100000, guid: 795bdff3120ae5b468f387f9a547b92f, type: 2}
+  - {fileID: 9100000, guid: 88832a9258c073447be2cc8b5ddbc1e4, type: 2}
+  - {fileID: 9100000, guid: 8025efbe6aab523489d52824f6405a76, type: 2}
+  - {fileID: 9100000, guid: a877eeb31f5844244b205d4aa82571c1, type: 2}
   target: {fileID: 0}
 --- !u!114 &2167132324227761563
 MonoBehaviour:

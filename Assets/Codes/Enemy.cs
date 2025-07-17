@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
 
+    public bool isBoss;
+
     enum EnemyType
     {
         Normal,
@@ -87,8 +89,21 @@ public class Enemy : MonoBehaviour
 
     public void Init(SpawnData data)
     {
-        int randomIndex = Random.Range(0, 10);
-        if (randomIndex < 8)
+        int randomIndex = Random.Range(0, 100);
+        // 확률에 따라 적의 종류를 결정
+        // Normal(89%), Speed(6%), Tank(4%), Range(1%), Boss는 wave의 마지막 자리가 0인 경우에 발생
+
+        if (isBoss)
+        {
+            enemyType = EnemyType.Boss;
+            anim.runtimeAnimatorController = animCon[4];
+            speed = 0.1f;
+            maxHealth = data.health * 20;
+            health = data.health * 20;
+            damage = data.damage * 5;
+            transform.localScale = new Vector3(0.12f, 0.12f, 1f);
+        }
+        else if (randomIndex < 82)
         {
             enemyType = EnemyType.Normal;
             anim.runtimeAnimatorController = animCon[0];
@@ -96,8 +111,9 @@ public class Enemy : MonoBehaviour
             maxHealth = data.health;
             health = data.health;
             damage = data.damage;
+            transform.localScale = new Vector3(0.05f, 0.05f, 1f);
         }
-        else
+        else if (randomIndex < 90)
         {
             enemyType = EnemyType.Speed;
             anim.runtimeAnimatorController = animCon[1];
@@ -105,6 +121,27 @@ public class Enemy : MonoBehaviour
             maxHealth = data.health * 0.7f;
             health = data.health * 0.7f;
             damage = data.damage * 0.7f;
+            transform.localScale = new Vector3(0.05f, 0.05f, 1f);
+        }
+        else if (randomIndex < 97)
+        {
+            enemyType = EnemyType.Tank;
+            anim.runtimeAnimatorController = animCon[2];
+            speed = 0.3f;
+            maxHealth = data.health * 5f;
+            health = data.health * 5f;
+            damage = data.damage;
+            transform.localScale = new Vector3(0.07f, 0.07f, 1f);
+        }
+        else
+        {
+            enemyType = EnemyType.Range;
+            anim.runtimeAnimatorController = animCon[3];
+            speed = 3f;
+            maxHealth = data.health * 0.7f;
+            health = data.health * 0.7f;
+            damage = data.damage;
+            transform.localScale = new Vector3(0.05f, 0.05f, 1f);
         }
     }
 
@@ -187,6 +224,25 @@ public class Enemy : MonoBehaviour
         float defaultGold = GameManager.instance.wave / 10 + 1;
 
         GameManager.instance.gold += (defaultGold * GameManager.instance.goldMulti);
+
+        switch (enemyType)
+        {
+            case EnemyType.Speed:
+                GameManager.instance.coin += (2 * GameManager.instance.coinMulti);
+                break;
+            case EnemyType.Tank:
+                GameManager.instance.coin += (5 * GameManager.instance.coinMulti);
+                break;
+            case EnemyType.Range:
+                GameManager.instance.coin += (2 * GameManager.instance.coinMulti);
+                break;
+            case EnemyType.Boss:
+                GameManager.instance.coin += (10 * GameManager.instance.coinMulti);
+                break;
+            case EnemyType.Normal:
+            default:
+                break;
+        }
 
         if (GameManager.instance.isLive)
         {
