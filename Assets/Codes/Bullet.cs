@@ -7,12 +7,14 @@ public class Bullet : MonoBehaviour
 
     Rigidbody2D rigid;
 
+    public bool isEnemyBullet = false;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void Init(float damage, int per, Vector3 dir)
+    public void Init(float damage, int per, Vector3 dir, bool isEnemyBullet = false)
     {
         this.damage = damage;
         this.per = per;
@@ -27,6 +29,12 @@ public class Bullet : MonoBehaviour
     {
         if (!collision.CompareTag("Enemy") || per == -100)
             return;
+
+        if (isEnemyBullet && collision.CompareTag("Enemy"))
+            return; // ignore enemy bullets hitting other enemies
+
+        if (!isEnemyBullet && collision.CompareTag("Player"))
+            return; // ignore player bullets hitting the player
 
         per--;
 

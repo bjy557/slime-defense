@@ -35,6 +35,9 @@ public class Enemy : MonoBehaviour
     float damageCooldown = 1f;
     float lastAttackTime = -999f;
 
+    float fireCooldown = 1f;
+    float lastFireTime = -999f;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -56,6 +59,16 @@ public class Enemy : MonoBehaviour
         if (!isKnockback)
         {
             Vector2 dirVec = target.position - rigid.position;
+
+            float distance = dirVec.magnitude;
+
+            if (enemyType == EnemyType.Range && distance < 2f)
+            {
+                rigid.linearVelocity = Vector2.zero;
+                TryFire(); // 공격
+                return;
+            }
+
             Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
             rigid.MovePosition(rigid.position + nextVec);
             rigid.linearVelocity = Vector2.zero;
@@ -103,7 +116,7 @@ public class Enemy : MonoBehaviour
             damage = data.damage * 5;
             transform.localScale = new Vector3(0.12f, 0.12f, 1f);
         }
-        else if (randomIndex < 82)
+        else if (randomIndex < 10)
         {
             enemyType = EnemyType.Normal;
             anim.runtimeAnimatorController = animCon[0];
@@ -113,7 +126,7 @@ public class Enemy : MonoBehaviour
             damage = data.damage;
             transform.localScale = new Vector3(0.05f, 0.05f, 1f);
         }
-        else if (randomIndex < 90)
+        else if (randomIndex < 20)
         {
             enemyType = EnemyType.Speed;
             anim.runtimeAnimatorController = animCon[1];
@@ -123,7 +136,7 @@ public class Enemy : MonoBehaviour
             damage = data.damage * 0.7f;
             transform.localScale = new Vector3(0.05f, 0.05f, 1f);
         }
-        else if (randomIndex < 97)
+        else if (randomIndex < 21)
         {
             enemyType = EnemyType.Tank;
             anim.runtimeAnimatorController = animCon[2];
@@ -137,7 +150,7 @@ public class Enemy : MonoBehaviour
         {
             enemyType = EnemyType.Range;
             anim.runtimeAnimatorController = animCon[3];
-            speed = 3f;
+            speed = 0.6f;
             maxHealth = data.health * 0.7f;
             health = data.health * 0.7f;
             damage = data.damage;
@@ -267,5 +280,23 @@ public class Enemy : MonoBehaviour
         yield return knockbackTime;
 
         isKnockback = false;
+    }
+
+    void TryFire()
+    {
+        if (Time.time - lastFireTime < fireCooldown)
+            return;
+
+        lastFireTime = Time.time;
+
+        Transform bullet = GameManager.instance.pool.Get(3).transform; // FireBall 프리팹 ID
+        bullet.position = transform.position;
+
+        Vector3 dir = (GameManager.instance.player.transform.position - transform.position).normalized;
+        bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
+
+        bullet.GetComponent<Bullet>().Init((float)damage, 0, dir, true);
+
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Range);
     }
 }
